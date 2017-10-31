@@ -1,12 +1,16 @@
 var db = require("../models");
 
 module.exports = function(app) {
- //api
-//update an item
-  // *update owner id 
-  // update sock post
+	app.get("/api/all-socks",function(req,res){
+		 db.Sock.findAll({})
+		.then(function(dbPost) {
+		  res.json(dbPost)
+		});
 
-  //post a new item
+	})
+	app.post("/api/new-sock", function(req,res){
+		//add new sock item
 
+	})
 
 };

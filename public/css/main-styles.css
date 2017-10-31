@@ -1,0 +1,93 @@
+body{
+	font-family: 'Dosis', sans-serif;
+	background-image: url('../images/geometry2.png');
+}
+
+body .page-header{
+	background-color:#ff4d4d;
+	width:100%;
+	top:0;
+	margin:0;
+	height:125px;
+}
+
+.title{
+	font-family: 'Satisfy', cursive;
+  font-size: 60pt;
+  color:white;
+}
+
+.container-fluid p{
+	text-align: center;
+	transform: translate(0 ,130%);
+	font-size: 18pt;
+}
+
+.container .photo-holder{
+	display:block;
+	float:left;
+	width:25%;
+	height:565px;
+	position: relative;
+}
+
+.photo-holder:hover .information{
+	transition: opacity 0.25s;
+
+}
+
+.featured-socks{
+	object-fit: cover;
+	width:100%;
+	height:100%;
+	/*max-height:565px;	*/
+	/*background-size: contain;*/
+	/*background-position: 50% 50%;*/
+  /*background-repeat:   no-repeat;*/
+  /*background-size:     cover;*/
+}
+
+.photo-holder .information{
+	position: absolute;
+	top:0;
+	background-color: rgba(255, 77, 77, 0.8);
+	height: 100%;
+	width:100%;
+	opacity: 0;
+	display:none;
+}
+
+.information .name{
+	text-align: center;
+	color:white;
+	font-size: 20pt;
+}
+
+.information .description{
+	border-top: 1px solid white;
+	padding:10px 10px 10px 10px;
+	color:white;
+	font-size: 14pt;
+}
+
+.information .profile-holder{
+	position: relative;
+	width:110px;
+	height:110px;
+	background-color: white;
+	clip-path: circle(50% at 50% 50%);
+	left:50%;
+	transform: translate(-50%, 0);
+}
+
+.information .profile-holder .profile{
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	clip-path: circle(50% at 50% 50%);
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+

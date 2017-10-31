@@ -1,47 +1,82 @@
-button.submit {
-  float: right;
+body{
+  overflow:hidden;
+
+  /*Green*/
+  /*background-color: #31CC70; */
+
+  /*Purple*/
+  /*background-color: #9900ff;*/
+
+  /*Light red. Opacity 0.5 looks better for this color*/
+  background-color:#ff4d4d;
+
+  /*Light blue*/
+  /*background-color:#4ddbff;*/
 }
 
-form#cms {
-  margin-top: 50px;
+.container{
+  transform: translate(0%,50%);
 }
 
-#cms textarea {
-  resize: none;
+.container h1, .container h3{
+  font-family: 'Satisfy', cursive;
+  font-size: 150pt;
+  text-align: center;
+  color:white;
 }
 
-.panel-heading button.delete,
-button.edit {
-  float: right;
-  margin: 5px;
+.container h3{
+  transform: translate(0%,-100%);
+  font-size: 25pt;
 }
 
-.author-container {
-  margin-top: 50px;
+.form-group input{
+  border: rgba(217, 217, 217, 0.7) 1px solid;
+  border-radius: 15px 50px;
 }
 
-.author-list {
-  margin-top: 25px;
+.form-group input:focus{
+  border: none;
+  box-shadow: 0 0 5px #ff4d4d;
 }
 
-.blog-container {
-  margin-top: 30px;
+.login-btn{
+  font-family: 'Satisfy', cursive;
+  background-color: #ff4d4d;
+  font-size: 20pt;  
+  position:absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  padding:10px 20px;
+  color:white;
 }
 
-.blog {
-  margin-top: 30px;
+button .glyphicon-heart-empty{
+  top: 50%;
+  transform: translate(0, 25%);
+  color:white;
 }
 
-.hidden {
-  display: none;
+button .glyphicon-heart-empty:hover, .login-btn:hover{
+  opacity:0.8;
 }
 
-#author-name {
+
+@keyframes scrollGood{
+  0% { transform: translate3d(0,0,0); }
+  100% { transform: translate3d(0,-3600px,0); }
+} 
+
+.scroll {
+  background-image: url(../images/socks-background.png);
+  opacity: 0.6;
+  background-position: center center;
+  background-size: 1200px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 500%;
   width: 100%;
-  height: 35px;
-  margin-top: 5px;
-}
-
-.top-30 {
-  margin-top: 30px;
+  animation: scrollGood 120s linear infinite;
+  z-index:-100;
 }

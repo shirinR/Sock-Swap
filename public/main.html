@@ -13,23 +13,33 @@
 </head>
 
 <body>
+<!-- HEADER -->
 	<header class="page-header">
 		<div class="container-fluid">
 			<div class="col-lg-4">
   			<h1 class="title">Sock Swap</h1>
-  		</div>			
-  		<div class="col-lg-offset-5 col-lg-1">
-  			<p>Settings</p>
-  		</div>  		
+  		</div>		
+
+			<div class="col-lg-7">
+		    <input type="text" class="form-control search-bar" placeholder="Search Filter Here">
+			</div>
+
   		<div class="col-lg-1">
-  			<p>Trades</p>
-  		</div>  		
-  		<div class="col-lg-1">
-  			<p>Profile</p>
+  			<!-- menu needs dropdown to profile and settings -->
+  			<img class="menu" src="./images/menu_icon.png">
   		</div>
   	</div>
 	</header>
-	
+
+	<div class="menu-box closed">
+		<h1>Profile</h1>
+		<h1>Setting</h1>
+	</div>
+<!-- HEADER - END -->
+
+
+
+<!-- CENTER SOCKS -->
 	<div class="container">
 
 		<div class="photo-holder">
@@ -39,17 +49,30 @@
 					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
 				</div>
 				<h3 class="name">Zombie Boy</h3>
-				<p class="description">Hey, I was doing just fine before I met you. I drink too much and that's an issue but I'm okay. Hey, you tell your friends it was nice to meet them. But I hope I never see them again. I know it breaks your heart, Moved to the city in a broke down car And four years, no calls. Now you're looking pretty in a hotel bar And I can't stop. No, I can't stop.</p>
+				<p class="description">Hey, I was doing juts fine before I met you. I drink too much and that's an issue but I'm okay. Hey, you tell your friends it was nice to meet them. But I hope I never see them again. I know it breaks your heart, Moved to the city in a broke down car And four years, no calls. Now you're looking pretty in a hotel bar And I can't stop. No, I can't stop.</p>
 			</div>
 		</div>
 
 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/00/6f/d9/006fd9d8b5adec618fb400645808ee28--funky-socks-crazy-socks.jpg">
-			<div class="information">asdahskjd</div>
+			<div class="information">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<h3 class="name">Zombie Boy</h3>
+				<p class="description">Hey, I was doing juts fine before I met you. I drink too much and that's an issue but I'm okay. Hey, you tell your friends it was nice to meet them. But I hope I never see them again. I know it breaks your heart, Moved to the city in a broke down car And four years, no calls. Now you're looking pretty in a hotel bar And I can't stop. No, I can't stop.</p>
+			</div>
 		</div>
 
 		<div class="photo-holder">
-			<img class="featured-socks" src="https://i.pinimg.com/736x/a8/35/0c/a8350c3dfbe18a3957e89c2b678f3076--funky-socks-cool-socks.jpg">	
+			<img class="featured-socks" src="https://i.pinimg.com/736x/a8/35/0c/a8350c3dfbe18a3957e89c2b678f3076--funky-socks-cool-socks.jpg">
+			<div class="information">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<h3 class="name">Zombie Boy</h3>
+				<p class="description">Hey, I was doing juts fine before I met you. I drink too much and that's an issue but I'm okay. Hey, you tell your friends it was nice to meet them. But I hope I never see them again. I know it breaks your heart, Moved to the city in a broke down car And four years, no calls. Now you're looking pretty in a hotel bar And I can't stop. No, I can't stop.Hey, I was doing juts fine before I met you. I drink too much and that's an issue but I'm okay. Hey, you tell your friends it was nice to meet them. But I hope I never see them again. I know it breaks your heart, Moved to the city in a broke down car And four years, no calls. Now you're looking pretty in a hotel bar And I can't stop. No, I can't stop.</p>
+			</div>	
 		</div>
 
 		<div class="photo-holder">
@@ -72,9 +95,109 @@
 			<img class="featured-socks" src="https://i.pinimg.com/736x/0f/6d/26/0f6d26775a58a838a3445e2425941ef5--thigh-socks-knee-high-socks.jpg">
 		</div>
 
-	</div>
+	</div> <!--container-->
+<!-- CENTER SOCKS - END -->
+
+
+<!-- MODAL -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Exchange Confirmation</h4>
+        </div>
+        <div class="modal-body">
+          <p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+        </div>
+        <div class="modal-footer">
+
+        	<img class="modal-icon accept" src="./images/accept_icon.png">
+        	<img class="modal-icon nope" src="./images/nope_icon.png">
+        	
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<!-- MODAL - END -->
+
+
+<!-- NOTIFICATION BOX - LEFT -->
+	<div class="notification-box">
+		<div class="pull-tab closed">
+			<img src="./images/socks_icon.png">
+		</div>
+		<div class="notification-title">Sock Exchange</div>
+		<div class="notification-overflow">
+
+			<!-- DATA-TOGGLE AND DATA-TARGET NEEDED FOR MODAL -->
+			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<span>First_Names wants to exchange with you.</span>
+			</div>
+
+			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<span>Second_Names wants to exchange with you.</span>
+			</div>
+
+			<div class="notification-bar">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<span>First_Names wants to exchange with you.</span>
+			</div>
+
+			<div class="notification-bar">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<span>Second_Names wants to exchange with you.</span>
+			</div>		
+
+			<div class="notification-bar">
+				<div class="profile-holder">
+					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				</div>
+				<span>Second_Names wants to exchange with you.</span>
+			</div>
+		</div><!--notification overflow-->
+	</div><!--notification box-->
+<!-- NOTIFICATION BOX - LEFT - END -->
+
 
 	<script type="text/javascript">
+		//Focused search bar
+		$('.search-bar').focus(function(){
+			$('.search-bar').animate({ width: '100%'}, 350);
+		});
+		//Unfocused search bar
+		$('.search-bar').blur(function(){
+			$('.search-bar').animate({ width: '25%'}, 350);
+		});
+
+		$('header').on('click','.menu',function(){
+			if ($('.menu-box').hasClass('closed')){
+				console.log('sweet');
+				$('.menu-box').removeClass('closed');
+				$('.menu-box').addClass('opened');
+				$('.menu-box').animate({right: '300px'},200);
+
+			}else if($('.menu-box').hasClass('opened')){
+				$('.menu-box').removeClass('opened');
+				$('.menu-box').addClass('closed');
+				$('.menu-box').animate({right: '0px'},200);
+			};
+		});		
+
+
 		$('.photo-holder').hover(function(){
 				$(this).find('.information').css('display','block');
 				setTimeout(function(){
@@ -83,9 +206,23 @@
 						
 		}, function(){
 			$('.information').css('opacity', '0');
-
 			$('.information').css('display','none');
-		})
+		});
+
+		$('.notification-box').on('click','.pull-tab',function(){
+			if($('.pull-tab').hasClass('closed')){
+				$('.notification-box .closed').removeClass('closed');
+				$('.notification-box .pull-tab').addClass('opened');
+				$('.notification-box').animate({left: '610px'},200);
+
+			}else if($('.pull-tab').hasClass('opened')){
+				$('.notification-box .opened').removeClass('opened');
+				$('.notification-box .pull-tab').addClass('closed');
+				$('.notification-box').animate({left: '0px'},200);
+			};
+		});		
+
+
 
 	</script>
 </body>

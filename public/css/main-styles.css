@@ -39,11 +39,27 @@ header .menu{
 	position: absolute;
 	width: 75px;
   top: 25px;
+  opacity: 0.8;
 }
 
 header .menu:hover{
 	cursor:pointer;
+	opacity:1;
 }
+
+/*div.closed{
+	animation: turn-on 200ms;
+}
+header .opened{
+
+}
+@keyframes turn-on{
+	from { transform: rotate(0deg); }
+	to { transform: rotate(90deg); }
+}
+@keyframes turn-off{
+	
+}*/
 
 .menu-box{
 	right:0;
@@ -172,7 +188,7 @@ float:left;
 	position: absolute;
 	top:250px;
 	padding:30px;
-	/*transform: translate(-610px,0);*/
+	transform: translate(-610px,0);
 	z-index: 2; 
 }
 
@@ -251,3 +267,40 @@ float:left;
 	transform: translate(-50%, -50%);
 }
 
+
+
+/*INDVIDIAUL SOCKS PAGE*/
+.sock-html .container{
+	margin-top:50px;
+}
+
+.sock-html .container .featured-socks{
+	width:35%;
+	height:500px;
+	object-fit: cover;
+	border: #ff4d4d solid 10px;
+}
+
+.sock-html .container .this-box-goes-right{
+	float:right;
+	width:60%;
+}
+.sock-html .sock-name{
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.sock-html .profile{
+	width:75px;
+	height: 75px;
+	clip-path: circle(50% at 50% 50%);
+	object-fit: cover;
+}
+
+.sock-html .user-name{
+	font-size: 20pt;
+}
+
+.sock-html .sock-description{
+	font-size: 16pt;
+}

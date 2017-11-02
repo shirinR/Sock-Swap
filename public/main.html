@@ -13,33 +13,33 @@
 </head>
 
 <body>
-<!-- HEADER -->
+	<!-- HEADER. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
 	<header class="page-header">
 		<div class="container-fluid">
 			<div class="col-lg-4">
-  			<h1 class="title">Sock Swap</h1>
-  		</div>		
+				<h1 class="title">Sock Swap</h1>
+			</div>		
 
 			<div class="col-lg-7">
-		    <input type="text" class="form-control search-bar" placeholder="Search Filter Here">
+				<input type="text" class="form-control search-bar" placeholder="Search Filter Here">
 			</div>
 
-  		<div class="col-lg-1">
-  			<!-- menu needs dropdown to profile and settings -->
-  			<img class="menu" src="./images/menu_icon.png">
-  		</div>
-  	</div>
+			<div class="col-lg-1">
+				<!-- menu needs dropdown to profile and settings -->
+				<img class="menu" src="./images/menu_icon.png">
+			</div>
+		</div>
 	</header>
 
 	<div class="menu-box closed">
 		<h1>Profile</h1>
 		<h1>Setting</h1>
 	</div>
-<!-- HEADER - END -->
+	<!-- HEADER - END -->
 
 
 
-<!-- CENTER SOCKS -->
+	<!-- CENTER SOCKS -->
 	<div class="container">
 
 		<div class="photo-holder">
@@ -96,36 +96,36 @@
 		</div>
 
 	</div> <!--container-->
-<!-- CENTER SOCKS - END -->
+	<!-- CENTER SOCKS - END -->
 
 
-<!-- MODAL -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Exchange Confirmation</h4>
-        </div>
-        <div class="modal-body">
-          <p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
-        </div>
-        <div class="modal-footer">
+	<!-- MODAL. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+			
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Exchange Confirmation</h4>
+				</div>
+				<div class="modal-body">
+					<p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+				</div>
+				<div class="modal-footer">
 
-        	<img class="modal-icon accept" src="./images/accept_icon.png">
-        	<img class="modal-icon nope" src="./images/nope_icon.png">
-        	
-        </div>
-      </div>
-      
-    </div>
-  </div>
-<!-- MODAL - END -->
+					<img class="modal-icon accept" src="./images/accept_icon.png">
+					<img class="modal-icon nope" src="./images/nope_icon.png">
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<!-- MODAL - END -->
 
 
-<!-- NOTIFICATION BOX - LEFT -->
+	<!-- NOTIFICATION BOX - LEFT. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
 	<div class="notification-box">
 		<div class="pull-tab closed">
 			<img src="./images/socks_icon.png">
@@ -170,10 +170,11 @@
 			</div>
 		</div><!--notification overflow-->
 	</div><!--notification box-->
-<!-- NOTIFICATION BOX - LEFT - END -->
+	<!-- NOTIFICATION BOX - LEFT - END -->
 
 
 	<script type="text/javascript">
+	//HEADER FUNCTIONALITY
 		//Focused search bar
 		$('.search-bar').focus(function(){
 			$('.search-bar').animate({ width: '100%'}, 350);
@@ -196,35 +197,36 @@
 				$('.menu-box').animate({right: '0px'},200);
 			};
 		});		
+	//HEADER FUNCTIONALITY - END
+
+	//MAIN PAGE FUNCTIONALITY
+	$('.photo-holder').hover(function(){
+		$(this).find('.information').css('display','block');
+		setTimeout(function(){
+			$('.information').css('opacity', '1');
+		}, 1);
+		
+	}, function(){
+		$('.information').css('opacity', '0');
+		$('.information').css('display','none');
+	});
+
+	$('.notification-box').on('click','.pull-tab',function(){
+		if($('.pull-tab').hasClass('closed')){
+			$('.notification-box .closed').removeClass('closed');
+			$('.notification-box .pull-tab').addClass('opened');
+			$('.notification-box').animate({left: '610px'},200);
+
+		}else if($('.pull-tab').hasClass('opened')){
+			$('.notification-box .opened').removeClass('opened');
+			$('.notification-box .pull-tab').addClass('closed');
+			$('.notification-box').animate({left: '0px'},200);
+		};
+	});		
+	//MAIN PAGE FUNCTIONALITY - END
 
 
-		$('.photo-holder').hover(function(){
-				$(this).find('.information').css('display','block');
-				setTimeout(function(){
-					$('.information').css('opacity', '1');
-				}, 1);
-						
-		}, function(){
-			$('.information').css('opacity', '0');
-			$('.information').css('display','none');
-		});
-
-		$('.notification-box').on('click','.pull-tab',function(){
-			if($('.pull-tab').hasClass('closed')){
-				$('.notification-box .closed').removeClass('closed');
-				$('.notification-box .pull-tab').addClass('opened');
-				$('.notification-box').animate({left: '610px'},200);
-
-			}else if($('.pull-tab').hasClass('opened')){
-				$('.notification-box .opened').removeClass('opened');
-				$('.notification-box .pull-tab').addClass('closed');
-				$('.notification-box').animate({left: '0px'},200);
-			};
-		});		
-
-
-
-	</script>
+</script>
 </body>
 
 </html>

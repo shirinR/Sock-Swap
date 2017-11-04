@@ -1,14 +1,14 @@
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("hillary1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("hillary1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Hillary1", "images/hillary_av");
 
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("matt1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("matt1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Matt1", "images/matt_av");
 
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("raymond1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("raymond1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Raymond1", "images/ryamond_av");
 
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("shirin1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("shirin1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Shirin1", "images/shirin_av");
 
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)

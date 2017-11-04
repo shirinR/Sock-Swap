@@ -33,7 +33,7 @@ function getSockHtml(name, description, sockImg, profile_img){
 function renderSocks(){
 	$.ajax({
 		method: "GET",
-		url: "/api/all-socks"
+		url: "/api/socks"
 	}).done(function(sockArr){
 
 

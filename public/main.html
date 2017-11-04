@@ -10,6 +10,9 @@
 	<link rel="stylesheet" href="css/main-styles.css" media="screen" title="no title">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- 	handlebars & sock population scripts
+ -->	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+	<script src="js/populate_socks.js"></script>
 </head>
 
 <body>
@@ -200,29 +203,32 @@
 	//HEADER FUNCTIONALITY - END
 
 	//MAIN PAGE FUNCTIONALITY
-		$('.photo-holder').hover(function(){
-			$(this).find('.information').css('display','block');
-			setTimeout(function(){
-				$('.information').css('opacity', '1');
-			}, 1);
-			
-		}, function(){
-			$('.information').css('opacity', '0');
-			$('.information').css('display','none');
-		});
+    $(".container").on("mouseenter mouseleave", ".photo-holder", function (e) {
+		  if (e.type == "mouseenter") {
+		    $(this).find('.information').css('display','block');
+		        setTimeout(function(){
+		            $('.information').css('opacity', '1');
+		        }, 1);
 
-		$('.notification-box').on('click','.pull-tab',function(){
-			if($('.pull-tab').hasClass('closed')){
-				$('.notification-box .closed').removeClass('closed');
-				$('.notification-box .pull-tab').addClass('opened');
-				$('.notification-box').animate({left: '610px'},200);
+		  } else {
+		    // if not, mouseleave, do something
+		    $('.information').css('opacity', '0');
+		        $('.information').css('display','none');
+		  }
+	}); 
+	$('.notification-box').on('click','.pull-tab',function(){
+            if($('.pull-tab').hasClass('closed')){
+                $('.notification-box .closed').removeClass('closed');
+                $('.notification-box .pull-tab').addClass('opened');
+                $('.notification-box').animate({left: '610px'},200);
 
-			}else if($('.pull-tab').hasClass('opened')){
-				$('.notification-box .opened').removeClass('opened');
-				$('.notification-box .pull-tab').addClass('closed');
-				$('.notification-box').animate({left: '0px'},200);
-			};
-		});		
+            }else if($('.pull-tab').hasClass('opened')){
+                $('.notification-box .opened').removeClass('opened');
+                $('.notification-box .pull-tab').addClass('closed');
+                $('.notification-box').animate({left: '0px'},200);
+            };
+        });
+
 	//MAIN PAGE FUNCTIONALITY - END
 
 

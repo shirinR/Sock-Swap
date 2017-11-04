@@ -1,22 +1,25 @@
 var db = require("../models");
 
 module.exports = function(app) {
-	app.get("/api/all-socks",function(req,res){
-		 db.Sock.findAll({})
+	app.get("/api/socks/:OwnerId?",function(req,res){
+		var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+
+		 	}]
+		 };
+
+		 if(req.params.OwnerId) {
+		 	query.where = {
+		 		OwnerId: req.params.OwnerId
+		 	}
+		 }
+
+		 db.Sock.findAll(query)
 		.then(function(dbPost) {
 		  res.json(dbPost)
 		});
-
-	});
-
-	app.post("/api/socks", function(req,res){
-		db.Sock.create({
-      		item_name: req.body.item_name,
-      		description: req.body.description
-    	}).then(function(dbPost) {
-      // We have access to the new todo as an argument inside of the callback function
-      		res.json(dbPost);
-    	});
 
 	});
 

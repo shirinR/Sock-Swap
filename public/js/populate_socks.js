@@ -1,11 +1,11 @@
 (function(){
 	//dummy pictures
-
+var ownerId = 1;
 
 
 //sock html template 
 var	sockSrc =
-["<div class='photo-holder'>",
+["<a href='/item.html'><div class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
 	"<div class='information'>",
 		"<div class='profile-holder'>",
@@ -14,7 +14,7 @@ var	sockSrc =
 		"<h3 class='name'>{{name}}</h3>",
 		"<p class='description'>{{description}}</p>",
 	"</div>",
-"</div>",
+"</div></a>",
 ].join("");
 
 
@@ -33,7 +33,7 @@ function getSockHtml(name, description, sockImg, profile_img){
 function renderSocks(){
 	$.ajax({
 		method: "GET",
-		url: "/api/socks"
+		url: "/api/socks/"
 	}).done(function(sockArr){
 
 

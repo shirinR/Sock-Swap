@@ -2,12 +2,17 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/api/all-socks",function(req,res){
-		 db.Socks.findAll({})
+		console.log(db.Socks);
+		 db.Sock.findAll({})
 		.then(function(dbPost) {
 		  res.json(dbPost)
 		});
 
 	});
+
+	// app.get("api/users/:username", function(req, res) {
+
+	// })
 
 	// app.post("/api/socks", function(req,res){
 	// 	db.Sock.create({

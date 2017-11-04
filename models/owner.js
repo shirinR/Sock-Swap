@@ -9,6 +9,14 @@ var Owner = sequelize.define("Owner", {
     user_name: {
     	type: DataTypes.STRING,
     	allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    profile_img: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 

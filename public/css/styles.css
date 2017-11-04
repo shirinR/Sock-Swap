@@ -77,6 +77,6 @@ button .glyphicon-heart-empty:hover, .login-btn:hover{
   left: 0px;
   height: 500%;
   width: 100%;
-  animation: scrollGood 120s linear infinite;
+  animation: scrollGood 300s linear infinite;
   z-index:-100;
 }

@@ -7,10 +7,17 @@ module.exports = function(app) {
 		  res.json(dbPost)
 		});
 
-	})
-	app.post("/api/new-sock", function(req,res){
-		//add new sock item
+	});
 
-	})
+	app.post("/api/socks", function(req,res){
+		db.Sock.create({
+      		item_name: req.body.item_name,
+      		description: req.body.description
+    	}).then(function(dbPost) {
+      // We have access to the new todo as an argument inside of the callback function
+      		res.json(dbPost);
+    	});
+
+	});
 
 };

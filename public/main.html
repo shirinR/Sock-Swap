@@ -200,33 +200,35 @@
 	//HEADER FUNCTIONALITY - END
 
 	//MAIN PAGE FUNCTIONALITY
-	$('.photo-holder').hover(function(){
-		$(this).find('.information').css('display','block');
-		setTimeout(function(){
-			$('.information').css('opacity', '1');
-		}, 1);
-		
-	}, function(){
-		$('.information').css('opacity', '0');
-		$('.information').css('display','none');
-	});
+		$('.photo-holder').hover(function(){
+			$(this).find('.information').css('display','block');
+			setTimeout(function(){
+				$('.information').css('opacity', '1');
+			}, 1);
+			
+		}, function(){
+			$('.information').css('opacity', '0');
+			$('.information').css('display','none');
+		});
 
-	$('.notification-box').on('click','.pull-tab',function(){
-		if($('.pull-tab').hasClass('closed')){
-			$('.notification-box .closed').removeClass('closed');
-			$('.notification-box .pull-tab').addClass('opened');
-			$('.notification-box').animate({left: '610px'},200);
+		$('.notification-box').on('click','.pull-tab',function(){
+			if($('.pull-tab').hasClass('closed')){
+				$('.notification-box .closed').removeClass('closed');
+				$('.notification-box .pull-tab').addClass('opened');
+				$('.notification-box').animate({left: '610px'},200);
 
-		}else if($('.pull-tab').hasClass('opened')){
-			$('.notification-box .opened').removeClass('opened');
-			$('.notification-box .pull-tab').addClass('closed');
-			$('.notification-box').animate({left: '0px'},200);
-		};
-	});		
+			}else if($('.pull-tab').hasClass('opened')){
+				$('.notification-box .opened').removeClass('opened');
+				$('.notification-box .pull-tab').addClass('closed');
+				$('.notification-box').animate({left: '0px'},200);
+			};
+		});		
 	//MAIN PAGE FUNCTIONALITY - END
 
 
-</script>
+	</script>
+	<!-- Custom Script for Ajax -->
+	<script src="js/view.js" type="text/javascript"></script>
 </body>
 
 </html>

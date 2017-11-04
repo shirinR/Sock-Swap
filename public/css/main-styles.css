@@ -270,15 +270,20 @@ float:left;
 
 
 /*INDVIDIAUL SOCKS PAGE*/
+.sock-html{
+	height:1300px;
+}
+
 .sock-html .container{
 	margin-top:50px;
+	position: relative;
 }
 
 .sock-html .container .featured-socks{
 	width:35%;
-	height:500px;
+	height:585px;
 	object-fit: cover;
-	border: #ff4d4d solid 10px;
+	border: rgba(255, 77, 77, 1) solid 10px;
 }
 
 .sock-html .container .this-box-goes-right{
@@ -288,6 +293,12 @@ float:left;
 .sock-html .sock-name{
 	font-size: 40px;
 	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: rgba(255, 77, 77, 0.3) 2px solid;
+}
+
+.sock-html .profile-holder{
+	margin-top: 15px;	
 }
 
 .sock-html .profile{
@@ -295,6 +306,7 @@ float:left;
 	height: 75px;
 	clip-path: circle(50% at 50% 50%);
 	object-fit: cover;
+	/*margin-top:10px;*/
 }
 
 .sock-html .user-name{
@@ -303,4 +315,48 @@ float:left;
 
 .sock-html .sock-description{
 	font-size: 16pt;
+	margin-bottom: 30px;
+}
+
+.sock-html .sock-value, .sock-html .sock-condition{
+	background-color: rgba(255, 77, 77, 0.8);
+	padding:10px;
+	color: white;
+	font-size: 14pt;
+}
+
+.sock-html .sock-request{
+	position: absolute;
+	left:50%;
+	bottom:-25%; 
+	transform: translate(-50%,0);
+}
+
+.sock-html .sock-request{
+	font-size: 20pt;
+	font-weight: bold;
+	background: rgba(255, 77, 77, 0.8);;
+}
+
+.sock-html .suggestions{
+	width: 100%;
+	height: 250px;
+	background-color: rgba(144,144,144,0.6);
+	position: absolute;
+	bottom:-250px;
+}
+
+.sock-html .suggestions h3{
+	position: absolute;
+	top:-70px;
+}
+
+.sock-html .suggestions img{
+	width:200px;
+	height:200px;
+	position: absolute;
+	transform: translate(0%,13%);
+	border: rgba(255, 77, 77, 1) solid 10px;
+	opacity: 0.7;
+
 }

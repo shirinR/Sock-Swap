@@ -1,9 +1,7 @@
 (function(){
 	//dummy pictures
 
-
-
-//sock html template 
+//sock html template
 var	sockSrc =
 ["<div class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
@@ -40,8 +38,6 @@ function renderSocks(){
 		sockArr.forEach(function(sock){
 			var sockDiv = $(getSockHtml(sock.item_name, sock.description, sock.image_path, sock.Owner.profile_img));
 
-
-
 			$(".container")[0].append(sockDiv[0]);
 		})
 	})
@@ -51,11 +47,11 @@ function renderSocks(){
 //on page load render socks
 $(document).ready(function(){
 	renderSocks()
-})
+});
 
 //if we need renderSocks in global scope
 window.renderSocks = renderSocks;
 
 
 
-})()
+})();

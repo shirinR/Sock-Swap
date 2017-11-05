@@ -43,7 +43,7 @@ body{
 .login-btn{
   font-family: 'Satisfy', cursive;
   background-color: #ff4d4d;
-  font-size: 20pt;  
+  font-size: 20pt;
   position:absolute;
   left: 50%;
   transform: translate(-50%, 0);
@@ -65,7 +65,7 @@ button .glyphicon-heart-empty:hover, .login-btn:hover{
 @keyframes scrollGood{
   0% { transform: translate3d(0,0,0); }
   100% { transform: translate3d(0,-3600px,0); }
-} 
+}
 
 .scroll {
   background-image: url(../images/socks-background.png);

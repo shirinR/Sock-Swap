@@ -69,4 +69,3 @@ VALUES ("Skull Socks", "Best socks ever!", "Like New", 40.00, false, "images/soc
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
 VALUES ("Dr Green Thumb Socks", "Wait, what is this section for...?", "Super old", 15.00, false, "images/sock20.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
-

@@ -1,5 +1,5 @@
 body{
-  overflow:hidden;
+  /*overflow:hidden;*/
 
   /*Green*/
   /*background-color: #31CC70; */
@@ -51,6 +51,17 @@ body{
   color:white;
 }
 
+.signup-btn{
+  font-family: 'Satisfy', cursive;
+  background-color: #ff4d4d;
+  font-size: 20pt;
+  position:absolute;
+  right: 50%;
+  transform: translate(-50%, 0);
+  padding:10px 20px;
+  color:yellow;
+}
+
 button .glyphicon-heart-empty{
   top: 50%;
   transform: translate(0, 25%);
@@ -77,6 +88,6 @@ button .glyphicon-heart-empty:hover, .login-btn:hover{
   left: 0px;
   height: 500%;
   width: 100%;
-  animation: scrollGood 300s linear infinite;
+  /*animation: scrollGood 300s linear infinite;*/
   z-index:-100;
 }

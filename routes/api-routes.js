@@ -32,5 +32,11 @@ module.exports = function(app) {
 		});
 	});
 
+	app.get("/api/owners", function(req,res){
+      	db.Owner.findAll({ }).then(function(dbPost){
+          	res.json(dbPost);
+      	});
+  	});
+
 };
 

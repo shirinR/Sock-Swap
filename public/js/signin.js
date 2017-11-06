@@ -1,6 +1,16 @@
-$(function() {
-
+  $(function() {
   var userInfo = [];
+  // var ownerId;
+
+  function getMainPage(){
+    $.ajax({
+      method: "GET",
+      url: "/main"
+    }).done(function(){
+          window.location.href = "./main";
+    });
+  }
+
   $('#btn_login').on('click', function(event){
     var userInput = {
       username: $('#username').val().trim(),
@@ -10,19 +20,20 @@ $(function() {
       method: "GET",
       url: "/api/owners"
     }).done(function(userInfo){
-      // console.log('>>>>>>>', userInfo);
-      // console.log('########',userInput);
 
       for(var i=0; i<userInfo.length; i++){
         if(userInfo[i].user_name === userInput.username){
           if (userInfo[i].password === userInput.password){
-            console.log('>>>>>>>here');
-            // TODO: route to next page
+            ownerId = userInfo[i].id;
+            getMainPage();
+            console.log('>>>>', userInfo[i]);
+            console.log('@@@', ownerId);
           }else{
             console.log('Password is not Match so you cannot login');
           }
         }
       }
+      return ownerId;
     });
   });
 });

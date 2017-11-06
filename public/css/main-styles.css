@@ -84,6 +84,8 @@ header .opened{
 
 }
 
+
+
 .featured-socks{
 	object-fit: cover;
 	width:100%;
@@ -104,6 +106,11 @@ header .opened{
 	width:100%;
 	opacity: 0;
 	display:none;
+}
+
+.trade {
+	opacity: 0;
+
 }
 
 .information .name{

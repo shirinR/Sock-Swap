@@ -22,7 +22,6 @@ module.exports = function(app) {
 		});
 	});
 
-
 	app.get("/api/user/:id", function(req,res) {
 		db.Owner.findAll({
 			where: {
@@ -32,4 +31,6 @@ module.exports = function(app) {
 			res.json(dbUser)
 		});
 	});
+
 };
+

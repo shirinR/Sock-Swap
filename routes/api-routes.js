@@ -10,17 +10,26 @@ module.exports = function(app) {
 		 	}]
 		 };
 
-		 if(req.params.OwnerId) {
+		if(req.params.OwnerId) {
 		 	query.where = {
 		 		OwnerId: req.params.OwnerId
 		 	}
-		 }
+		}
 
-		 db.Sock.findAll(query)
-		.then(function(dbPost) {
-		  res.json(dbPost)
+		 	db.Sock.findAll(query)
+			.then(function(dbPost) {
+		  	res.json(dbPost)
 		});
-
 	});
 
+
+	app.get("/api/user/:id", function(req,res) {
+		db.Owner.findAll({
+			where: {
+				id: req.params.id
+			}
+		}).then(function(dbUser){
+			res.json(dbUser)
+		});
+	});
 };

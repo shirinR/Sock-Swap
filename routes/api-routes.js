@@ -24,17 +24,9 @@ module.exports = function(app) {
 	});
 
 	app.get("/api/owners", function(req,res){
-		var query = {
-			include: [{
-				model:db.Owner,
-				attributes: ["user_name", "password"]
-			}]
-		};
-
-		db.Owners.findOne(query)
-		.then(function(dpPost){
-			res.json(dbPost);
-		});
-	});
+      db.Owner.findAll({ }).then(function(dbPost){
+          res.json(dbPost);
+      });
+  });
 
 };

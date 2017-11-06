@@ -178,19 +178,38 @@ header .opened{
 }
 
 
+
 /*MODAL CSS*/
+.modal-content{
+	background:rgba(0, 0, 0, 0.7);
+	padding:20px;
+}
+
 .modal-footer img{
 	width:100px;
 	opacity: 0.7;
 }
 
 .modal-footer .accept{
-float:left;
+	float:left;
 }
 
-.modal-footer .nope{
-
+.modal-footer, .modal-body, .modal-header{	
+	border-color: rgba(255, 77, 77, 0.6); 
 }
+
+.modal-title{
+	font-family: 'Satisfy', cursive;
+	text-align: left;
+	color: #ff4d4d;
+	font-size:30pt;
+}
+
+.modal-body p{
+	font-size: 18pt;
+	color:white;
+}
+
 .modal-sock-pix{
 	height:300px;
 	overflow: auto;
@@ -200,7 +219,19 @@ float:left;
 	width:25%;
 	height:200px;
 	float:left;
+	padding:5px;
 }
+
+.footer-button-space{
+	height:100px;
+}
+
+.main-sock-request{
+	position: absolute;
+	left:50%;
+	transform: translate(-50%,0);
+}
+
 
 
 /*Left - Notification box CSS*/
@@ -210,7 +241,7 @@ float:left;
 	background:white;
 	box-shadow: 5px 0px 10px lightgrey;
 	/*background:rgba(255, 77, 77, 1);*/
-	position: absolute;
+	position: fixed;
 	top:250px;
 	padding:30px;
 	transform: translate(-610px,0);
@@ -357,7 +388,7 @@ float:left;
 	transform: translate(-50%,0);
 }
 
-.sock-html .sock-request{
+.sock-html .sock-request, .main-sock-request{
 	font-size: 20pt;
 	font-weight: bold;
 	background: rgba(255, 77, 77, 0.8);;
@@ -386,8 +417,6 @@ float:left;
 }
 
 /*PROFILE.HTML CSS*/
-
-
 .wrapper {
   /* The height needs to be set to a fixed value for the effect to work.
    * 100vh is the full height of the viewport. */
@@ -399,6 +428,8 @@ float:left;
   /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
   perspective: 2px;
 }
+
+
 
 .profile-html .profile-banner{
 	margin: 10px 0 20px 0;	
@@ -445,8 +476,8 @@ float:left;
 
 .profile-html .profile-banner .profile-holder .profile{
 	position: absolute;
-	width:240px;
-	height:240px;
+	width:230px;
+	height:230px;
 	clip-path: circle(50% at 50% 50%);
 	top: 50%;
   left: 50%;
@@ -464,18 +495,29 @@ float:left;
 	position: relative;	
 }
 
-.profile-html .profile-options .add-a-sock{
+.profile-html .profile-options .add-a-sock, .profile-html .profile-options .lose-a-sock{
 	font-weight: bold;
 	font-size: 70px;
 	color:white;
 	opacity: 0.7;
+	transition: opacity 0.25s;
+}
+
+.profile-html .profile-options .add-a-sock{
 	position: absolute;
 	right:15%;
 	top:-10%;
 }
 
-.profile-html .profile-options .add-a-sock:hover{
+.profile-html .profile-options .lose-a-sock{
+	position: absolute;
+	left:15%;
+	top:-10%;
+}
+
+.profile-html .profile-options .add-a-sock:hover, .profile-html .profile-options .lose-a-sock:hover{
 	opacity: 1;
+	cursor: pointer;
 }
 
 .profile-html .profile-options .title{

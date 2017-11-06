@@ -1,3 +1,16 @@
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("hillary1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Hillary1", "images/hillary_av.jpg");
+
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("matt1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Matt1", "images/matt_av.jpeg");
+
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("raymond1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Raymond1", "images/raymond_av.jpg");
+
+INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)
+VALUES ("shirin1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, "Shirin1", "images/shirin_av.jpg");
+
+
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
 VALUES ("Finger Socks", "Best socks ever!", "Worn once on a hike, not washed", 5.00, false, "images/sock1.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 1);
 
@@ -23,10 +36,10 @@ INSERT INTO Socks (item_name, description, item_condition, item_value, trade_req
 VALUES ("Me So Corny socks", "Rare find!", "Used", 25.00, false, "images/sock8.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
-VALUES ("Little Mermaid Socks", "I love this sock so much it would take a miracle to trade!", "Comes with L sock only", 30.00, false, "images/sock9.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
+VALUES ("Little Mermaid Socks", "I love this sock so much it would take a miracle to trade!", "Comes with L sock only", 30.00, false, "images/sock9.png", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
-VALUES ("Super Woman Socks", "Wouldn't trade these for the world", "Used", 12.00, false, "images/sock10.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
+VALUES ("Super Woman Socks", "Wouldn't trade these for the world", "Used", 12.00, false, "images/sock10.gif", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 2);
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
 VALUES ("Mac n Cheese Socks", "These socks make me hungry", "Like New", 9.00, false, "images/sock11.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 3);
@@ -53,23 +66,7 @@ INSERT INTO Socks (item_name, description, item_condition, item_value, trade_req
 VALUES ("Couple Socks", "If you love your GF you will trade request these socks!", "worn one billion times, not washed", 50.00, false, "images/sock18.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
-VALUES ("Skull Socks", "Best socks ever!", "Like New", 40.00, false, "images/sock19.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
+VALUES ("Skull Socks", "Best socks ever!", "Like New", 40.00, false, "images/sock19.jpeg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
 
 INSERT INTO Socks (item_name, description, item_condition, item_value, trade_request, image_path, createdAt, updatedAt, OwnerId)
 VALUES ("Dr Green Thumb Socks", "Wait, what is this section for...?", "Super old", 15.00, false, "images/sock20.jpg", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 4);
-
-
-
-
-
-
-
-
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("hillary1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("matt1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("raymond1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-INSERT INTO Owners (user_name, createdAt, updatedAt)
-VALUES ("shirin1", CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)

@@ -114,9 +114,12 @@ header .opened{
 
 .information .description{
 	border-top: 1px solid white;
+	border-bottom: 1px solid white;
 	padding:10px 10px 10px 10px;
 	color:white;
 	font-size: 14pt;
+	height:310px;
+	overflow-y: hidden;
 }
 
 .information .profile-holder{
@@ -139,6 +142,23 @@ header .opened{
   transform: translate(-50%, -50%);
 }
 
+.photo-holder .trade{
+	position: absolute;
+	bottom:0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*font-weight: bold;*/
+  font-size: 18pt;
+  color: white;
+  opacity: 0.7;
+  transition: opacity 0.25s; 
+}
+
+.photo-holder .trade:hover{
+	cursor: pointer;
+	opacity: 1;
+}
+
 
 /*MODAL CSS*/
 .modal-footer img{
@@ -152,6 +172,16 @@ float:left;
 
 .modal-footer .nope{
 
+}
+.modal-sock-pix{
+	height:300px;
+	overflow: auto;
+}
+
+.modal-sock-pix .my-socks{
+	width:25%;
+	height:200px;
+	float:left;
 }
 
 

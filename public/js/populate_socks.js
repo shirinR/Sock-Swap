@@ -1,21 +1,21 @@
 (function(){
 	//dummy pictures
-var ownerId = "1";
+var ownerId = "2";
 
 
 //sock html template 
 var	sockSrc =
-["<a href='/item.html'><div class='photo-holder'>",
+["<div class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
-	"<div class='information'>",
+	"<a href='/item.html'><div class='information'>",
 		"<div class='profile-holder'>",
 			"<img class='profile' src='{{profileImg}}''>",
 		"</div>",
 		"<h3 class='name'>{{name}}</h3>",
 		"<p class='description'>{{description}}</p>",
-		"<div class='trade' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
-	"</div>",
-"</div></a>",
+	"</div></a>",
+	"<div class='trade' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
+"</div>",
 ].join("");
 
 var ownerSock = 
@@ -24,6 +24,11 @@ var ownerSock =
  "</div>"	
 ].join("");
 
+
+
+
+//handlebars templates:
+
 function getMySockHtml(mySockImg) {
 	var template = Handlebars.compile(ownerSock);
 	var context = {
@@ -31,6 +36,15 @@ function getMySockHtml(mySockImg) {
 	};
 	return template(context);
 }
+
+// function getUserProfilePic(profile_img) {
+// 	var template = Handlebars.compile(profilePic);
+// 	var context = {
+// 		profile_img: profile_img
+// 	};
+
+// 	return template(context);
+// }
 
 function getSockHtml(name, description, sockImg, profile_img){
 	var template = Handlebars.compile(sockSrc);
@@ -44,16 +58,19 @@ function getSockHtml(name, description, sockImg, profile_img){
 	return template(context);
 }
 
+//ajax calls to api/routes:
+
 
 function renderMySocks(){
 	$.ajax({
 		method: "GET",
 		url: "/api/socks/" + ownerId
 	}).done(function(sockArr){
-
 		sockArr.forEach(function(sock){
 			var sockDiv = $(getMySockHtml(sock.image_path));
+			
 			$(".modal-sock-pix")[0].append(sockDiv[0]);
+			
 		})
 	})
 }
@@ -63,23 +80,31 @@ function renderSocks(){
 		method: "GET",
 		url: "/api/socks/"
 	}).done(function(sockArr){
-
-
 		sockArr.forEach(function(sock){
 			var sockDiv = $(getSockHtml(sock.item_name, sock.description, sock.image_path, sock.Owner.profile_img));
-
-
-
 			$(".container")[0].append(sockDiv[0]);
 		})
 	})
 
 }
 
+function renderUserStats() {
+	$.ajax({
+		method: "GET",
+		url: "api/user/" + ownerId
+	}).done(function(user) {
+		var image = user[0].profile_img;
+		var profilePicDiv = "<img class='menu' src='" + image + "'>";
+
+		$(".profile-pic-container").append(profilePicDiv);
+	})
+}
+
 //on page load render socks
 $(document).ready(function(){
 	renderSocks();
 	renderMySocks();
+	renderUserStats();
 })
 
 //if we need renderSocks in global scope

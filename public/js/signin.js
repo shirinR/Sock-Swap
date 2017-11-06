@@ -5,10 +5,12 @@ $(function() {
       username: $('#username').val().trim(),
       password: $('#password').val().trim()
     };
-    console.log('here');
-
-    if(username === Owner.user_name && password === Owner.password){
-      // $.get('/main', userInfo).done(...);
-    }
+    // if(username === Owner.user_name && password === Owner.password){}
+    $.ajax({
+      method: "GET",
+      url: "/api/owners/"
+    }).done(function(userInfo){
+      console.log('>>>>', userInfo);
+    });
   });
 });

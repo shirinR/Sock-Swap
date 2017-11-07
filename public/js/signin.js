@@ -2,15 +2,13 @@
   $(function() {
   var userInfo = [];
 
-  var ownerId = 'test';
-
+  var ownerId;
 
   function getMainPage(){
     $.ajax({
       method: "GET",
       url: "/main"
     }).done(function(){
-      console.log(ownerId);
           window.location.href = "./main";
     });
   }

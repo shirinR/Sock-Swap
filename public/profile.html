@@ -13,20 +13,24 @@
 </head>
 
 <body class="profile-html">
+	<!-- FOOTER -->
+	<img class="bottom-leaves" src="./images/fallen_leaves.png">
+	<!-- FOOTER - END -->
+
 	<!-- HEADER. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
 	<header class="page-header">
 		<div class="container-fluid">
 			<div class="col-lg-4">
-				<h1 class="title">Sock Swap</h1>
+				<a href=""><h1 class="title">Sock Swap</h1></a>
 			</div>		
 
 			<div class="col-lg-7">
 				<input type="text" class="form-control search-bar" placeholder="Search Filter Here">
 			</div>
 
-			<div class="col-lg-1">
+			<div class="col-lg-1 profile-pic-container">
 				<!-- menu needs dropdown to profile and settings -->
-				<img class="menu" src="./images/menu_icon.png">
+			<!-- 	<img class="menu" src="./images/menu_icon.png"> -->
 			</div>
 		</div>
 	</header>
@@ -58,6 +62,10 @@
 			<div class="add-a-sock" data-toggle="modal" data-target="#myModal-add">
 				<p>+</p>	
 				<p class="title">Add a Sock</p>
+			</div>
+			<div class="lose-a-sock" data-toggle="modal" data-target="#myModal-add">
+				<p>-</p>	
+				<p class="title">Lose a Sock</p>
 			</div>
 
 		</div>
@@ -108,6 +116,7 @@
 
 	</div> <!--container-->
 	<!-- CENTER SOCKS - END -->
+
 
 	<!-- ADD SOCK MODAL -->
 	<div class="modal fade" id="myModal-add" role="dialog">
@@ -168,6 +177,7 @@
 	<div class="notification-box">
 		<div class="pull-tab closed">
 			<img src="./images/socks_icon.png">
+			<span class="notification-count"></span>
 		</div>
 		<div class="notification-title">Sock Exchange</div>
 		<div class="notification-overflow">
@@ -263,7 +273,19 @@
 		};
 	});		
 	//MAIN PAGE FUNCTIONALITY - END
+	
+	  $(document).ready(function(){
+	  	var count = $('.notification-bar').length;
 
+	  	if (count === 0){
+	  		$('.notification-count').css('display','none');
+	  	}else{
+	  		console.log('BREEZY');
+	  		$('.notification-count').text(count);
+	  	}
+	  	console.log(count);
+
+	  });
 
 </script>
 </body>

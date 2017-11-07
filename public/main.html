@@ -16,6 +16,10 @@
 </head>
 
 <body>
+	<!-- FOOTER -->
+	<img class="bottom-leaves" src="./images/fallen_leaves.png">
+	<!-- FOOTER - END -->
+	
 	<!-- HEADER. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
 	<header class="page-header">
 		<div class="container-fluid">
@@ -83,6 +87,7 @@
 	</div>
 	<!-- NOTIFICATION MODAL - END -->
 
+
 	<!--TRADE MODAL. -->
 	<div class="modal fade" id="myModal-trade" role="dialog">
 		<div class="modal-dialog">
@@ -126,10 +131,15 @@
 					</div>
 
 				</div>
-				<h4 class="modal-title">Current Sock Selected:</h4>
-				<div class="modal-footer">
 
+				<div class="modal-footer">
+					<h4 class="modal-title">Current Sock Selected:</h4>
 				</div>
+				<div class="modal-footer footer-button-space">
+					<button type="button" class="main-sock-request btn btn-default login-btn" aria-label="Left Align">
+      			<span class="glyphicon glyphicon-heart-empty"></span> Swap Socks
+    			</button>
+    		</div>
 			</div>
 			
 		</div>
@@ -141,6 +151,7 @@
 	<div class="notification-box">
 		<div class="pull-tab closed">
 			<img src="./images/socks_icon.png">
+			<span class="notification-count"></span>
 		</div>
 		<div class="notification-title">Sock Exchange</div>
 		<div class="notification-overflow">
@@ -180,6 +191,7 @@
 				</div>
 				<span>Second_Names wants to exchange with you.</span>
 			</div>
+
 		</div><!--notification overflow-->
 	</div><!--notification box-->
 	<!-- NOTIFICATION BOX - LEFT - END -->
@@ -225,18 +237,32 @@
 		        $('.information').css('display','none');
 		  }
 	}); 
-	$('.notification-box').on('click','.pull-tab',function(){
-            if($('.pull-tab').hasClass('closed')){
-                $('.notification-box .closed').removeClass('closed');
-                $('.notification-box .pull-tab').addClass('opened');
-                $('.notification-box').animate({left: '610px'},200);
 
-            }else if($('.pull-tab').hasClass('opened')){
-                $('.notification-box .opened').removeClass('opened');
-                $('.notification-box .pull-tab').addClass('closed');
-                $('.notification-box').animate({left: '0px'},200);
-            };
-        });
+		$('.notification-box').on('click','.pull-tab',function(){
+	      if($('.pull-tab').hasClass('closed')){
+	          $('.notification-box .closed').removeClass('closed');
+	          $('.notification-box .pull-tab').addClass('opened');
+	          $('.notification-box').animate({left: '610px'},200);
+
+	      }else if($('.pull-tab').hasClass('opened')){
+	          $('.notification-box .opened').removeClass('opened');
+	          $('.notification-box .pull-tab').addClass('closed');
+	          $('.notification-box').animate({left: '0px'},200);
+	      };
+	  });
+
+	  $(document).ready(function(){
+	  	var count = $('.notification-bar').length;
+
+	  	if (count === 0){
+	  		$('.notification-count').css('display','none');
+	  	}else{
+	  		console.log('BREEZY');
+	  		$('.notification-count').text(count);
+	  	}
+	  	console.log(count);
+
+	  });
 
 	//MAIN PAGE FUNCTIONALITY - END
 

@@ -1,7 +1,7 @@
 (function(){
 	//dummy pictures
-var ownerId = "2";
 
+ownerId = "1";
 
 //sock html template 
 var	sockSrc =

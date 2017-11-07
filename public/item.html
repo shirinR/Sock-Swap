@@ -13,6 +13,10 @@
 </head>
 
 <body class="sock-html">
+  <!-- FOOTER -->
+  <img class="bottom-leaves" src="./images/fallen_leaves.png">
+  <!-- FOOTER - END -->
+  
 <!-- HEADER. KEEP FOR ALL PAGES EXCEPT LOGIN. -->
   <header class="page-header">
     <div class="container-fluid">
@@ -62,6 +66,11 @@
 
       <!-- SOCK CONDITION -->
       <span class="sock-condition">Condition: New</span>
+
+      <!-- FOR FUN -->
+      <span class="for-fun">Bluetooth Connectivity</span>
+      <span class="for-fun">Party Enabler</span>
+
     </div>
 
     <button type="button" class="sock-request btn btn-default login-btn" aria-label="Left Align" data-toggle="modal" data-target="#myModal">
@@ -73,7 +82,7 @@
 
 
   <div class="suggestions container-fluid">
-    <h3>Check out this Person's other socks!</h3>
+    <h3>Other Socks by This Person!</h3>
     <div class="col-lg-offset-1 col-lg-2">
       <img class="featured-socks" src="https://i.pinimg.com/736x/5b/b9/48/5bb948735f0e0e587f3305d583eeef83--space-astronauts-crazy-socks.jpg">
     </div>
@@ -123,6 +132,7 @@
   <div class="notification-box">
     <div class="pull-tab closed">
       <img src="./images/socks_icon.png">
+      <span class="notification-count"></span>
     </div>
     <div class="notification-title">Sock Exchange</div>
     <div class="notification-overflow">
@@ -207,6 +217,19 @@
       };
     });   
   //NOTIFICATION PAGE FUNCTIONALITY - END
+
+    $(document).ready(function(){
+      var count = $('.notification-bar').length;
+
+      if (count === 0){
+        $('.notification-count').css('display','none');
+      }else{
+        console.log('BREEZY');
+        $('.notification-count').text(count);
+      }
+      console.log(count);
+
+    });
 
   //SOCK SWAP BUTTON FUNCTIONALITY 
   $('')

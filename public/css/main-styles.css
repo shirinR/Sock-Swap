@@ -3,22 +3,32 @@ body{
 	background-image: url('../images/geometry2.png');
 	/*background-color: yellow;*/
 	overflow-x: hidden;
+	position: relative;
+	min-height: 100vh;
 }
 
 /*HEADER CSS*/
-
 body .page-header{
 	background-color:#ff4d4d;
 	width:100%;
 	top:0;
 	margin:0;
 	height:125px;
+	background-image: url('../images/leaves.png');
+	background-position:left top;
+	background-size: auto 180px;
 }
+
 
 header .title{
 	font-family: 'Satisfy', cursive;
   font-size: 60pt;
   color:white;
+  text-shadow: 2px 2px 2px black; 
+}
+
+header a:hover{
+	text-decoration: none;
 }
 
 header .search-bar{
@@ -28,11 +38,12 @@ header .search-bar{
 	border: #c8e1ef 2px solid;
   border-radius: 15px 50px;
   font-size: 16pt;
+  box-shadow: 2px 2px 2px black; 
 }
 
 header .search-bar:focus{
   border: none;
-  box-shadow: 0 0 5px #c8e1ef;
+  box-shadow: 2px 2px 2px black; 
 }
 
 header .profile-pic-container{
@@ -177,6 +188,16 @@ header .opened{
 	opacity: 0.7;
 }
 
+.bottom-leaves{
+	position: absolute;
+	bottom:0;
+	/*left:0;*/
+	width:100%;
+	height:1080px;
+	opacity: 0.4;
+	filter:saturate(3) contrast(100%);
+	z-index: -99;
+}
 
 
 /*MODAL CSS*/
@@ -260,8 +281,26 @@ header .opened{
 	opacity:0.8;
 }
 
+.notification-box .notification-count{
+	color:white;
+	font-size: 16pt;
+	font-weight: bold;
+	background-color: red;
+	padding:6px 15px;
+	clip-path: circle(50% at 50% 50%);
+	position: absolute;
+	top:-10px;
+	right:-25px;
+	opacity: 0.7;
+	transition: opacity 0.25s;
+}
+
 .notification-box .pull-tab:hover{
 	cursor: pointer;
+}
+
+.notification-box .pull-tab:hover .notification-count{
+	opacity: 1;
 }
 
 .notification-title{
@@ -339,18 +378,24 @@ header .opened{
 	width:35%;
 	height:585px;
 	object-fit: cover;
-	border: rgba(255, 77, 77, 1) solid 10px;
+	border: rgba(255, 77, 77, 1) dotted 5px;
 }
 
 .sock-html .container .this-box-goes-right{
 	float:right;
 	width:60%;
+	/*background-color: rgba(0,0,0,0.3);*/
+	/*height: 585px;*/
+	background-color: rgba(255, 77, 77, 0.5);
+	padding:15px;
+	color:white;
+	text-shadow: 1px 1px 2px black;
 }
 .sock-html .sock-name{
 	font-size: 40px;
 	font-weight: bold;
 	padding-bottom: 10px;
-	border-bottom: rgba(255, 77, 77, 0.3) 2px solid;
+	border-bottom: rgba(255, 77, 77, 0.6) 2px solid;
 }
 
 .sock-html .profile-holder{
@@ -370,15 +415,20 @@ header .opened{
 }
 
 .sock-html .sock-description{
-	font-size: 16pt;
-	margin-bottom: 30px;
+  font-size: 17pt;
+  overflow: auto;
+	height:270px;
+	padding:10px;
+	/*background-color: rgba(0,0,0,0.3);*/
 }
 
-.sock-html .sock-value, .sock-html .sock-condition{
+.sock-html .sock-value, .sock-html .sock-condition, .sock-html .for-fun{
 	background-color: rgba(255, 77, 77, 0.8);
 	padding:10px;
 	color: white;
 	font-size: 14pt;
+	float:left;
+	margin:5px;
 }
 
 .sock-html .sock-request{
@@ -388,23 +438,34 @@ header .opened{
 	transform: translate(-50%,0);
 }
 
+.sock-html .sock-request:hover{
+	opacity: 0.8;
+}
+
 .sock-html .sock-request, .main-sock-request{
 	font-size: 20pt;
 	font-weight: bold;
-	background: rgba(255, 77, 77, 0.8);;
+	background: rgba(255, 77, 77, 1);
+	transition: opacity 0.25s;
 }
 
 .sock-html .suggestions{
 	width: 100%;
 	height: 250px;
-	background-color: rgba(144,144,144,0.6);
+	background-color: rgba(255, 77, 77, 0.5);
 	position: absolute;
-	bottom:-250px;
+	bottom: 0px;
+  margin-bottom: 40px;
 }
 
 .sock-html .suggestions h3{
 	position: absolute;
-	top:-70px;
+	font-style: italic;
+	top:-65px;
+	background-color: rgba(255, 77, 77, 0.8);
+	color:white;
+	text-shadow: 1px 1px 2px black;
+	padding:10px;
 }
 
 .sock-html .suggestions img{
@@ -412,25 +473,17 @@ header .opened{
 	height:200px;
 	position: absolute;
 	transform: translate(0%,13%);
-	border: rgba(255, 77, 77, 1) solid 10px;
-	opacity: 0.7;
+	border: rgba(255, 77, 77, 1) solid 3px;;
+	opacity: 0.8;
+	transition: opacity 0.25s;
+}
+
+.sock-html .suggestions img:hover{
+	opacity: 1;
+	cursor:pointer;
 }
 
 /*PROFILE.HTML CSS*/
-.wrapper {
-  /* The height needs to be set to a fixed value for the effect to work.
-   * 100vh is the full height of the viewport. */
-  height: 100vh;
-  /* The scaling of the images would add a horizontal scrollbar, so disable x overflow. */
-  overflow-x: hidden;
-  /* Enable scrolling on the page. */
-  overflow-y: auto;
-  /* Set the perspective to 2px. This is essentailly the simulated distance from the viewport to transformed objects.*/
-  perspective: 2px;
-}
-
-
-
 .profile-html .profile-banner{
 	margin: 10px 0 20px 0;	
 	width: 100%;
@@ -486,7 +539,7 @@ header .opened{
 
 .profile-html .container .profile-options{
 	height:140px;
-	border: white	 10px solid;
+	border: white 10px solid;
 	width: 100%;
 	background-color: rgba(255, 77, 77, 0.7); 
 }

@@ -5,7 +5,7 @@ var ownerId = "2";
 
 //sock html template 
 var	sockSrc =
-["<div class='photo-holder'>",
+["<div data-sock-id='{{sockId}}' data-owner='{{ownerId}}'class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
 	"<a href='/item.html'><div class='information'>",
 		"<div class='profile-holder'>",
@@ -19,7 +19,7 @@ var	sockSrc =
 ].join("");
 
 var ownerSock = 
-["<div class='photo-holder'>",
+["<div data-sock-id='{{sockId}}' class='photo-holder'>",
 	"<img class='my-socks' src='{{mySockImg}}'> ",
  "</div>"	
 ].join("");
@@ -29,10 +29,11 @@ var ownerSock =
 
 //handlebars templates:
 
-function getMySockHtml(mySockImg) {
+function getMySockHtml(mySockImg,sockId) {
 	var template = Handlebars.compile(ownerSock);
 	var context = {
 		mySockImg: mySockImg,
+		sockId: sockId
 	};
 	return template(context);
 }
@@ -46,13 +47,15 @@ function getMySockHtml(mySockImg) {
 // 	return template(context);
 // }
 
-function getSockHtml(name, description, sockImg, profile_img){
+function getSockHtml(name, description, sockImg, profile_img,sockId,ownerId){
 	var template = Handlebars.compile(sockSrc);
 	var context = {
 		name: name,
 		description: description,
 		sockImg: sockImg,
 		profileImg: profile_img,
+		sockId: sockId,
+		ownerId: ownerId
 		// Owner: user_name
 	};
 	return template(context);
@@ -67,7 +70,7 @@ function renderMySocks(){
 		url: "/api/socks/" + ownerId
 	}).done(function(sockArr){
 		sockArr.forEach(function(sock){
-			var sockDiv = $(getMySockHtml(sock.image_path));
+			var sockDiv = $(getMySockHtml(sock.image_path,sock.id));
 			
 			$(".modal-sock-pix")[0].append(sockDiv[0]);
 			
@@ -81,7 +84,12 @@ function renderSocks(){
 		url: "/api/socks/"
 	}).done(function(sockArr){
 		sockArr.forEach(function(sock){
-			var sockDiv = $(getSockHtml(sock.item_name, sock.description, sock.image_path, sock.Owner.profile_img));
+			var sockDiv = $(getSockHtml(sock.item_name,
+										sock.description, sock.image_path, 
+										sock.Owner.profile_img,
+										sock.id,
+										sock.OwnerId));
+
 			$(".container")[0].append(sockDiv[0]);
 		})
 	})
@@ -113,3 +121,4 @@ window.renderSocks = renderSocks;
 
 
 })()
+

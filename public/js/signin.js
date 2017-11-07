@@ -1,5 +1,7 @@
+  
   $(function() {
   var userInfo = [];
+
   var ownerId;
 
   function getMainPage(){
@@ -7,7 +9,7 @@
       method: "GET",
       url: "/main"
     }).done(function(){
-        window.location.href = "./main";
+          window.location.href = "./main";
     });
   }
 
@@ -25,6 +27,7 @@
         if(userInfo[i].user_name === userInput.username){
           if (userInfo[i].password === userInput.password){
             ownerId = userInfo[i].id;
+            console.log(ownerId);
             getMainPage();
             console.log('>>>>', userInfo[i]);
             console.log('@@@', ownerId);
@@ -33,7 +36,9 @@
           }
         }
       }
+console.log(ownerId);
       return ownerId;
+
     });
   });
 });

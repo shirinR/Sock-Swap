@@ -50,11 +50,8 @@ module.exports = function(app) {
 		  	res.json(dbPost)
 		});
 	});
-//this is broken, adds null items
 	app.post("/api/trade-request/create",function(req,res){
-			console.log(req.body)
-
-
+			console.log("body",req.body)
 
 		 	db.TradeRequest.create({
 		 		ownerId: req.body.ownerId,
@@ -64,26 +61,7 @@ module.exports = function(app) {
 
 		 	})
 			.then(function(dbPost) {
-			  	// res.json(dbPost)
+			  	res.json(dbPost)
 			});
 	});
 };
-
-
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   autoIncrement: true,
-    //   primaryKey: true
-    // },
-    // ownerId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // requesteeId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // ownerSockId: {
-    //   type: DataTypes.INTEGER
-    // },
-    // requesteeSockId: {
-    //   type: DataTypes.INTEGER
-    // }

@@ -38,5 +38,52 @@ module.exports = function(app) {
       	});
   	});
 
+	app.get("/api/trade-request/all/:ownerId?",function(req,res){
+		var query = {}
+		if(req.params.ownerId) {
+		 	query.where = {
+		 		ownerId: req.params.ownerId
+		 	}
+		}
+		 	db.TradeRequest.findAll(query)
+			.then(function(dbPost) {
+		  	res.json(dbPost)
+		});
+	});
+//this is broken, adds null items
+	app.post("/api/trade-request/create",function(req,res){
+			console.log(req.body)
+
+
+
+		 	db.TradeRequest.create({
+		 		ownerId: req.body.ownerId,
+		 		requesteeId: req.body.requesteeId,
+		 		ownerSockId: req.body.ownerSockId,
+		 		requesteeSockId: req.body.requesteeSockId
+
+		 	})
+			.then(function(dbPost) {
+			  	// res.json(dbPost)
+			});
+	});
 };
 
+
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   autoIncrement: true,
+    //   primaryKey: true
+    // },
+    // ownerId: {
+    //   type: DataTypes.INTEGER
+    // },
+    // requesteeId: {
+    //   type: DataTypes.INTEGER
+    // },
+    // ownerSockId: {
+    //   type: DataTypes.INTEGER
+    // },
+    // requesteeSockId: {
+    //   type: DataTypes.INTEGER
+    // }

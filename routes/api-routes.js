@@ -64,4 +64,12 @@ module.exports = function(app) {
 			  	res.json(dbPost)
 			});
 	});
+	app.delete("/api/trade-request/delete/:id", function(req,res){
+		var id = parseInt(req.params.id);
+		db.TradeRequest.destroy({ where: { id: id } })
+		.then(function(){
+			console.log("destroyed")
+
+		})
+	})
 };

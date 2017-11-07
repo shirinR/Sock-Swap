@@ -99,6 +99,7 @@
 					<h4 class="modal-title">Select a Sock to Trade.</h4>
 				</div>
 				<div class="modal-body">
+					<h4 class="modal-title">Your Trade Request is Now Pending!</h4>
 					<div class="modal-sock-pix">
 
 							<!-- <div class="photo-holder">
@@ -250,6 +251,27 @@
 	          $('.notification-box').animate({left: '0px'},200);
 	      };
 	  });
+
+		$('#myModal-trade').on('click','.main-sock-request', function(){
+			console.log('yayyyaayayaya');
+
+			$('.modal-sock-pix').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal-trade .modal-body .modal-title').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal-trade .close').trigger("click");
+
+				$('.modal-sock-pix').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal-trade .modal-body .modal-title').css('display','none');
+			}, 3000);
+			
+		});
+
 
 	  $(document).ready(function(){
 	  	var count = $('.notification-bar').length;

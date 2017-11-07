@@ -1,12 +1,16 @@
+  
   $(function() {
   var userInfo = [];
-  // var ownerId;
+
+  var ownerId = 'test';
+
 
   function getMainPage(){
     $.ajax({
       method: "GET",
       url: "/main"
     }).done(function(){
+      console.log(ownerId);
           window.location.href = "./main";
     });
   }
@@ -25,6 +29,7 @@
         if(userInfo[i].user_name === userInput.username){
           if (userInfo[i].password === userInput.password){
             ownerId = userInfo[i].id;
+            console.log(ownerId);
             getMainPage();
             console.log('>>>>', userInfo[i]);
             console.log('@@@', ownerId);
@@ -33,7 +38,9 @@
           }
         }
       }
+console.log(ownerId);
       return ownerId;
+
     });
   });
 });

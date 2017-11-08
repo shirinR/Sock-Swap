@@ -51,7 +51,7 @@ module.exports = function(app) {
 		});
 	});
 	app.post("/api/trade-request/create",function(req,res){
-			console.log("body",req.body)
+			// console.log("body",req.body)
 
 		 	db.TradeRequest.create({
 		 		ownerId: req.body.ownerId,

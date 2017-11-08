@@ -1,3 +1,5 @@
+var currentUserTradeRequests = [];
+
 (function(){
 	var requestedSock;
 	var currentSockOwner;
@@ -23,12 +25,40 @@
 					"current sock owner id:"+ currentSockOwner+
 					"requester id:"+ ownerId+
 					"user id of the current sock owner:"+ userOwnedSock;
+		insertTradeRequest(event);
 
 	});
 
 	$('.main-sock-request').on("click", function() {
 		alert(tradeDetails);
 	});
+
+	function getCurrentUserRequests() {
+	    $.get("/api/trade-request/all/" + ownerId, function(data) {
+	      // currentUserTradeRequests = data;
+	      
+	    });
+  }
+
+// Add trade request to trade request table:
+
+
+  	function insertTradeRequest(event) {
+	    event.preventDefault();
+	    var tradeRequest = {
+	    	ownerId: currentSockOwner,
+	    	requesteeId: ownerId,
+	    	ownerSockId: requestedSock,
+	    	requesteeSockId: userOwnedSock
+    };
+
+    $.post("/api/trade-request/create", tradeRequest);
+
+  }
+
+
+
+
 
 })()
 

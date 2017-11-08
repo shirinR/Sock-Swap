@@ -1,7 +1,7 @@
 (function(){
 	//dummy pictures
 
-ownerId = "4";
+var localStorageOwnerId = localStorage.getItem('storedOwnerId');
 
 //debug
 // localStorage.removeItem('storedSockId');
@@ -9,6 +9,16 @@ ownerId = "4";
 var localStorageSockId = localStorage.getItem('storedSockId');
 var itemHtmlId = "";
 var itemSockOwnerId = "";
+var ownerId = "1";
+
+//if skip login
+if (localStorageOwnerId === null){
+	ownerId = "1"; //defaults to hillary
+}else if(localStorageSockId){
+	ownerId = JSON.parse(localStorageOwnerId).ownerid;
+}
+
+
 
 //Fixed where JSON.parse(localStorageSockId).id prevented page from loading if null
 if (localStorageSockId === null){
@@ -217,7 +227,6 @@ function renderMyItemSock(){
 		url: "/api/socks/" + itemSockOwnerId
 	}).done(function(sockArr){
 		for(var i=0; i < 5; i++){
-			console.log(sockArr[i].image_path);
 			$('.sock-html .suggestions div:nth-child('+(2+i)+') .featured-socks').attr('src', sockArr[i].image_path);
 		}
 	});

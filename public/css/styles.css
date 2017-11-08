@@ -31,6 +31,7 @@ body{
 }
 
 .form-group input{
+  position:relative;
   border: rgba(217, 217, 217, 0.7) 1px solid;
   border-radius: 15px 50px;
 }

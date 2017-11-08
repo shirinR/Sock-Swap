@@ -1,28 +1,42 @@
 (function(){
 	//dummy pictures
 
-ownerId = "3";
+ownerId = "4";
 
-var retrievedObject = localStorage.getItem('storedId');
-var itemHtmlId = JSON.parse(retrievedObject).id;
-//sock html template 
+//debug
+// localStorage.removeItem('storedSockId');
 
-$('.container').on('click', 'a',function(){
+var localStorageSockId = localStorage.getItem('storedSockId');
+var itemHtmlId = "";
+var itemSockOwnerId = "";
+
+//Fixed where JSON.parse(localStorageSockId).id prevented page from loading if null
+if (localStorageSockId === null){
+	itemHtmlId = "";
+	itemSockOwnerId = "";
+}else if(localStorageSockId){
+	itemHtmlId = JSON.parse(localStorageSockId).id;
+	itemSockOwnerId = JSON.parse(localStorageSockId).sockOwnerId;
+}
+
+
+$('.container').on('click', 'a', function(){
 	var sockId = $(this).attr('data-sock-id');
 
 	$.get('/api/sock/' + sockId, function(data){
 		console.log('Sock Id:',data[0].id);
-
-		var storedId = {
-			id: data[0].id
+		var storedSockId = {
+			id: data[0].id,
+			sockOwnerId: data[0].OwnerId
 		};
-		localStorage.setItem('storedId', JSON.stringify(storedId));
+		localStorage.setItem('storedSockId', JSON.stringify(storedSockId));
 	});
 });
-//try putting in local storage
 
-//removed a tag for testing
-//
+
+
+//sock html template 
+
 var	sockSrc =
 ["<div data-sock-id='{{sockId}}' data-owner='{{ownerId}}'class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
@@ -153,10 +167,6 @@ function renderUserStats() {
 
 		$(".profile-pic-container").append(profilePicDiv);
 
-		//used in item.html
-		$('.sock-html #sock-information .profile-holder .user-name').append(userName);
-		$('.sock-html #sock-information .profile-holder .profile').attr('src',image);
-
 		//used in profile.html
 		$(".profile-html .container-fluid .profile-holder").append(profileHtmlPic);
 		$(".profile-html .profile-banner .welcome-text").append(profileHtmlName);
@@ -189,11 +199,6 @@ function renderMyItemSock(){
 		url: "/api/sock/" + itemHtmlId
 	}).done(function(sockArr){
 		sockArr.forEach(function(sock){
-			console.log('>>>>>>>>>><<<<<<<<<', sock)
-			console.log('>>>>>>>>>><<<<<<<<<', sock.item_name)
-			console.log('>>>>>>>>>><<<<<<<<<', sock.description)
-			console.log('>>>>>>>>>><<<<<<<<<', sock.item_condition)
-			console.log('>>>>>>>>>><<<<<<<<<', sock.item_value)
 
 			$('.sock-html #sock-information .featured-socks').attr('src', sock.image_path);
 			$('.sock-html .this-box-goes-right .sock-name').append(sock.item_name);
@@ -201,12 +206,22 @@ function renderMyItemSock(){
 			$('.sock-html .this-box-goes-right .sock-value').append(sock.item_value);
 			$('.sock-html .this-box-goes-right .sock-condition').append(sock.item_condition);
 
-			
-			// $(".socks-html")[0].append(sockDiv[0]);
-			
-		})
-	})
-}
+			//used in item.html to render name + pic of owner
+			$('.sock-html #sock-information .profile-holder .user-name').append(sock.Owner.user_name);
+			$('.sock-html #sock-information .profile-holder .profile').attr('src',sock.Owner.profile_img);
+		});
+	});
+	//generates same owners socks
+	$.ajax({
+		method: "GET",
+		url: "/api/socks/" + itemSockOwnerId
+	}).done(function(sockArr){
+		for(var i=0; i < 5; i++){
+			console.log(sockArr[i].image_path);
+			$('.sock-html .suggestions div:nth-child('+(2+i)+') .featured-socks').attr('src', sockArr[i].image_path);
+		}
+	});
+};
 
 
 //on page load render socks
@@ -214,10 +229,14 @@ $(document).ready(function(){
 	renderSocks();
 	renderMySocks();
 	renderUserStats();
+
+	//render Profile
 	renderMyProfileSocks();
+
+	//render Item
 	renderMyItemSock();
 
-	console.log('Sock ID: ', itemHtmlId);
+	console.log('Sock Owner Id:', itemSockOwnerId)
 })
 
 //if we need renderSocks in global scope

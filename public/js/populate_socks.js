@@ -1,7 +1,5 @@
 var ownerId = "1";
-var requestedSockId;
-var requester = ownerId;
-var currentSockOwne;
+
 
 (function(){
 	//dummy pictures

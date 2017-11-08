@@ -1,8 +1,9 @@
-var ownerId = "2";
+
 (function(){
 	//dummy pictures
 
 
+ownerId = "1";
 
 //sock html template 
 var	sockSrc =

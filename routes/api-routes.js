@@ -38,5 +38,38 @@ module.exports = function(app) {
       	});
   	});
 
-};
+	app.get("/api/trade-request/all/:ownerId?",function(req,res){
+		var query = {}
+		if(req.params.ownerId) {
+		 	query.where = {
+		 		ownerId: req.params.ownerId
+		 	}
+		}
+		 	db.TradeRequest.findAll(query)
+			.then(function(dbPost) {
+		  	res.json(dbPost)
+		});
+	});
+	app.post("/api/trade-request/create",function(req,res){
+			console.log("body",req.body)
 
+		 	db.TradeRequest.create({
+		 		ownerId: req.body.ownerId,
+		 		requesteeId: req.body.requesteeId,
+		 		ownerSockId: req.body.ownerSockId,
+		 		requesteeSockId: req.body.requesteeSockId
+
+		 	})
+			.then(function(dbPost) {
+			  	res.json(dbPost)
+			});
+	});
+	app.delete("/api/trade-request/delete/:id", function(req,res){
+		var id = parseInt(req.params.id);
+		db.TradeRequest.destroy({ where: { id: id } })
+		.then(function(){
+			console.log("destroyed")
+
+		})
+	})
+};

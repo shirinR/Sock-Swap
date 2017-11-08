@@ -226,6 +226,10 @@ header .opened{
 	font-size:30pt;
 }
 
+#myModal-trade .modal-body .modal-title{
+	display:none;
+}
+
 .modal-body p{
 	font-size: 18pt;
 	color:white;

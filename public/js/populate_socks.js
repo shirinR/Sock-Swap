@@ -9,15 +9,14 @@ var localStorageOwnerId = localStorage.getItem('storedOwnerId');
 var localStorageSockId = localStorage.getItem('storedSockId');
 var itemHtmlId = "";
 var itemSockOwnerId = "";
-var ownerId = "1";
+var ownerId;
 
 //if skip login
 if (localStorageOwnerId === null){
 	ownerId = "1"; //defaults to hillary
-}else if(localStorageSockId){
+}else if(localStorageOwnerId){
 	ownerId = JSON.parse(localStorageOwnerId).ownerid;
 }
-
 
 
 //Fixed where JSON.parse(localStorageSockId).id prevented page from loading if null

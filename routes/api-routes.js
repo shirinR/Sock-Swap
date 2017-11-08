@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-	app.get("/api/socks/:OwnerId?",function(req,res){
+	app.get("/api/socks/:OwnerId?/:id?",function(req,res){
 		var query = {
 		 	include: [{
 		 		model: db.Owner,
@@ -13,6 +13,12 @@ module.exports = function(app) {
 		if(req.params.OwnerId) {
 		 	query.where = {
 		 		OwnerId: req.params.OwnerId
+		 	}
+		}
+
+		if(req.params.id) {
+		 	query.where = {
+		 		id: req.params.id
 		 	}
 		}
 
@@ -56,6 +62,26 @@ module.exports = function(app) {
 		  	res.json(dbPost)
 		});
 	});
+
+	app.get("/api/trade-request/:id?",function(req,res){
+		var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+
+		 	}]
+		 };
+		if(req.params.id) {
+		 	query.where = {
+		 		id: req.params.id
+		 	}
+		}
+		 	db.TradeRequest.findAll(query)
+			.then(function(dbPost) {
+		  	res.json(dbPost)
+		});
+	});
+
 	app.post("/api/trade-request/create",function(req,res){
 			// console.log("body",req.body)
 

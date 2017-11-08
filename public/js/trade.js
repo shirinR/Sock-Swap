@@ -59,19 +59,15 @@
 		alert(tradeDetails);
 		insertTradeRequest(event);
 	});
+	
+//onclick event for populate trade request (spefic request):
+	$(".notification-overflow").on("click", ".notification-bar", function(){
+		
+		var tradeId = $(this).attr("data-trade-id");
+		renderTradeDialog(tradeId)		
 
-	// function populateRequests() {
-	//     $.get("/api/trade-request/all/" + ownerId, function(data) {
-	//      console.log(data);
+	})
 
-	// 	    for(var i = 0; i < data.length; i++) {
-	// 	     	requesterOwnerId = data[i].requesteeId;
-	// 	     	renderTradeStats(requesterOwnerId);
-
-	// 	    }
-	      
-	// 	});
- //    }
 
 // Add trade request to trade request table:
 
@@ -107,6 +103,38 @@
 			})
 		})
 	}
+
+	function renderTradeDialog(id) {
+		$.ajax({
+			method: "GET",
+			url: "/api/trade-request/" + id
+		}).done(function(res){
+			var tradeRequestSubmitter = res[0].Owner.user_name;
+			var requesteeSockId = res[0].requesteeSockId;
+			var ownerSockId = res[0].ownerSockId;
+			var ownerSockName;
+			var requesteeSockName;
+			
+				$.ajax({
+					method: "GET",
+					url: "/api/socks/" + ownerId + "/" + ownerSockId
+				}).done(function(ownerSock){
+					ownerSockName = ownerSock[0].item_name;
+				})
+
+				$.ajax({
+					method: "GET",
+					url: "/api/socks/" + ownerId + "/" + requesteeSockId
+				}).done(function(requesteeSock){
+					requesteeSockName = requesteeSock[0].item_name;
+					var div = "<p>" + tradeRequestSubmitter + " wants to trade their " + requesteeSockName + " for your " + ownerSockName + " ! Do you accept?.</p>";
+					console.log(div);
+					$(".trade-dialog").append(div);
+				})
+
+		})
+	}
+
 
 	$(document).ready(function(){
 		renderTradeStats(ownerId);

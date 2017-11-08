@@ -1,4 +1,4 @@
-var currentUserTradeRequests = [];
+
 
 (function(){
 	var requestedSock;
@@ -6,11 +6,12 @@ var currentUserTradeRequests = [];
 	var requester;
 	var userOwnedSock;
 	var tradeDetails;
+	var requesterOwnerId;
 
-	populateRequests();
+	// populateRequests();
 
 	var requestHtml = 
-	["<div class='notification-bar' data-toggle='modal' data-target='#myModal'>",
+	["<div class='notification-bar' data-trade-id='{{tradeId}}' data-toggle='modal' data-target='#myModal'>",
 		"<div class='profile-holder'>",
 				"<img class='profile' src='{{profilePicCurrentOwner}}'>",
 		"</div>",
@@ -18,13 +19,16 @@ var currentUserTradeRequests = [];
 	"</div>"
 	].join("");
 
+
+
 	//handlebars templates:
 
-	function requestsHtml(profile_img, user_name) {
+	function requestsHtml(profile_img, user_name, tradeId) {
 		var template = Handlebars.compile(requestHtml);
 		var context = {
 			profilePicCurrentOwner: profile_img,
-			usernameCurrentOwner: user_name
+			usernameCurrentOwner: user_name,
+			tradeId: tradeId
 		};
 		return template(context);
 	}
@@ -45,28 +49,29 @@ var currentUserTradeRequests = [];
 		userOwnedSock = $(this).attr("data-sock-id");
 		tradeDetails = "requested sock id:"+ requestedSock+
 					"current sock owner id:"+ currentSockOwner+
-					"requester id:"+ ownerId+
+					"requester id:"+ requester+
 					"user id of the current sock owner:"+ userOwnedSock;
-		insertTradeRequest(event);
+		
 
 	});
 
 	$('.main-sock-request').on("click", function() {
 		alert(tradeDetails);
+		insertTradeRequest(event);
 	});
 
-	function populateRequests() {
-	    $.get("/api/trade-request/all/" + ownerId, function(data) {
-	     console.log(data);
+	// function populateRequests() {
+	//     $.get("/api/trade-request/all/" + ownerId, function(data) {
+	//      console.log(data);
 
-		    for(var i = 0; i < data.length; i++) {
-		     	var requesterOwnerId = data[i].requesteeId;
-		     	renderUserStats(requesterOwnerId);
+	// 	    for(var i = 0; i < data.length; i++) {
+	// 	     	requesterOwnerId = data[i].requesteeId;
+	// 	     	renderTradeStats(requesterOwnerId);
 
-		    }
+	// 	    }
 	      
-		});
-    }
+	// 	});
+ //    }
 
 // Add trade request to trade request table:
 
@@ -74,8 +79,8 @@ var currentUserTradeRequests = [];
   	function insertTradeRequest(event) {
 	    event.preventDefault();
 	    var tradeRequest = {
-	    	ownerId: currentSockOwner,
-	    	requesteeId: ownerId,
+	    	OwnerId: currentSockOwner,
+	    	requesteeId: requester,
 	    	ownerSockId: requestedSock,
 	    	requesteeSockId: userOwnedSock
     	};
@@ -86,21 +91,26 @@ var currentUserTradeRequests = [];
 
   	//rendering user info by owner Id
 
-  	function renderUserStats(ownerId) {
+  	function renderTradeStats(ownerId) {
+
 		$.ajax({
 			method: "GET",
-			url: "api/user/" + ownerId
-		}).done(function(userArr){
-			userArr.forEach(function(user){
-				var requestDiv = $(requestsHtml(user.profile_img, user.user_name));
+			url: "/api/trade-request/all/" + ownerId
+		}).done(function(tradeArr){
+			console.log(tradeArr);
+			tradeArr.forEach(function(trade){
+				console.log(trade);
+				var requestDiv = $(requestsHtml(trade.Owner.profile_img, trade.Owner.user_name, trade.id));
 				
 				$(".notification-overflow")[0].append(requestDiv[0]);
 				
 			})
 		})
-}
+	}
 
-
+	$(document).ready(function(){
+		renderTradeStats(ownerId);
+	})
 
 
 

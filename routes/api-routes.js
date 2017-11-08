@@ -38,11 +38,17 @@ module.exports = function(app) {
       	});
   	});
 
-	app.get("/api/trade-request/all/:ownerId?",function(req,res){
-		var query = {}
-		if(req.params.ownerId) {
+	app.get("/api/trade-request/all/:OwnerId?",function(req,res){
+		var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+
+		 	}]
+		 };
+		if(req.params.OwnerId) {
 		 	query.where = {
-		 		ownerId: req.params.ownerId
+		 		OwnerId: req.params.OwnerId
 		 	}
 		}
 		 	db.TradeRequest.findAll(query)
@@ -54,7 +60,7 @@ module.exports = function(app) {
 			// console.log("body",req.body)
 
 		 	db.TradeRequest.create({
-		 		ownerId: req.body.ownerId,
+		 		OwnerId: req.body.OwnerId,
 		 		requesteeId: req.body.requesteeId,
 		 		ownerSockId: req.body.ownerSockId,
 		 		requesteeSockId: req.body.requesteeSockId

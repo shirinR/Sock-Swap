@@ -1,13 +1,17 @@
+var ownerId = "1";
+var requestedSockId;
+var requester = ownerId;
+var currentSockOwne;
 
 (function(){
 	//dummy pictures
 
 
-ownerId = "1";
+
 
 //sock html template 
 var	sockSrc =
-["<div data-sock-id='{{sockId}}' data-owner='{{ownerId}}'class='photo-holder'>",
+["<div data-sock-id='{{sockId}}' data-owner='{{ownerId}}' class='photo-holder'>",
 	"<img class='featured-socks' src='{{sockImg}}'>	",
 	"<a href='/item.html'><div class='information'>",
 		"<div class='profile-holder'>",
@@ -16,7 +20,7 @@ var	sockSrc =
 		"<h3 class='name'>{{name}}</h3>",
 		"<p class='description'>{{description}}</p>",
 	"</div></a>",
-	"<div class='trade' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
+	"<div class='trade' data-sock-id='{{sockId}}' data-owner='{{ownerId}}' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
 "</div>",
 ].join("");
 

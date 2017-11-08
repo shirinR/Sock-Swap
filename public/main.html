@@ -211,7 +211,7 @@
 
 		$('header').on('click','.menu',function(){
 			if ($('.menu-box').hasClass('closed')){
-				console.log('sweet');
+
 				$('.menu-box').removeClass('closed');
 				$('.menu-box').addClass('opened');
 				$('.menu-box').animate({right: '300px'},200);
@@ -253,7 +253,6 @@
 	  });
 
 		$('#myModal-trade').on('click','.main-sock-request', function(){
-			console.log('yayyyaayayaya');
 
 			$('.modal-sock-pix').css('display','none');
 			$('.modal-header .modal-title').css('display','none');
@@ -281,10 +280,8 @@
 	  	if (count === 0){
 	  		$('.notification-count').css('display','none');
 	  	}else{
-	  		console.log('BREEZY');
 	  		$('.notification-count').text(count);
 	  	}
-	  	console.log(count);
 
 	  });
 

@@ -38,5 +38,16 @@ module.exports = function(app) {
       	});
   	});
 
+	//For item.html
+	app.get("/api/sock/:SockId", function(req,res){
+    db.Sock.findAll({ 
+    	where: {
+    		id: req.params.SockId
+    	}
+    }).then(function(dbPost){
+     	res.json(dbPost);
+   	});
+  });
+
 };
 

@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/main-styles.css" media="screen" title="no title">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 </head>
 
 <body class="profile-html">
@@ -41,10 +42,11 @@
 		<div class="profile-banner">
 
 			<div class="profile-banner-color"></div>
-			<h1>Welcome Home, Barack Obama.</h1>
-
+			<div class="welcome-text">
+				<!-- <h1>Welcome Home, Barack Obama.</h1> -->
+			</div>
 			<div class="profile-holder">
-				<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				<!-- <img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg"> -->
 			</div>
 		</div>
 
@@ -57,7 +59,7 @@
 
 
 	<!-- CENTER SOCKS -->
-	<div class="container">    
+	<div class="container profile-socks-container">    
 		<div class="profile-options">
 			<div class="add-a-sock" data-toggle="modal" data-target="#myModal-add">
 				<p>+</p>	
@@ -78,7 +80,7 @@
 			</div>
 		</div>
 
-		<div class="photo-holder">
+<!-- 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/00/6f/d9/006fd9d8b5adec618fb400645808ee28--funky-socks-crazy-socks.jpg">
 			<div class="information">
 				<h3 class="name">Zombie Boy</h3>
@@ -112,7 +114,7 @@
 
 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/0f/6d/26/0f6d26775a58a838a3445e2425941ef5--thigh-socks-knee-high-socks.jpg">
-		</div>
+		</div> -->
 
 	</div> <!--container-->
 	<!-- CENTER SOCKS - END -->
@@ -249,16 +251,19 @@
 	//HEADER FUNCTIONALITY - END
 
 	//MAIN PAGE FUNCTIONALITY
-	$('.photo-holder').hover(function(){
-		$(this).find('.information').css('display','block');
-		setTimeout(function(){
-			$('.information').css('opacity', '1');
-		}, 1);
-		
-	}, function(){
-		$('.information').css('opacity', '0');
-		$('.information').css('display','none');
-	});
+    $(".container").on("mouseenter mouseleave", ".photo-holder", function (e) {
+		  if (e.type == "mouseenter") {
+		    $(this).find('.information').css('display','block');
+		        setTimeout(function(){
+		            $('.information').css('opacity', '1');
+		        }, 1);
+
+		  } else {
+		    // if not, mouseleave, do something
+		    $('.information').css('opacity', '0');
+		        $('.information').css('display','none');
+		  }
+	}); 
 
 	$('.notification-box').on('click','.pull-tab',function(){
 		if($('.pull-tab').hasClass('closed')){
@@ -288,6 +293,7 @@
 	  });
 
 </script>
+	<script src="js/populate_socks.js"></script>
 </body>
 
 </html>

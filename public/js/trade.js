@@ -1,22 +1,34 @@
 (function(){
-	
-//onclick event for choosing sock from current user to trade 
+	var requestedSock;
+	var currentSockOwner;
+	var requester;
+	var userOwnedSock;
+	var tradeDetails;
 
-	$('.modal-sock-pix').on("click", '.photo-holder', function(){		
-		var requester = ownerId;
-		var userOwnedSock = $(this).attr("data-sock-id");
-		console.log($(this).attr("data-sock-id"));
-
-	});
+//on click event for trade button. Stores info for the sock requested and the current owner:
 
 	$('.container').on("click", ".trade", function(){	
-		console.log(this);
-		// var requestedSock = $(this).attr("data-sock-id");
-		// var currentSockOwner = $(this.attr("data-owner-id");
 
-		;
+		requestedSock = $(this).attr("data-sock-id");
+		currentSockOwner = $(this).attr("data-owner");
 	});
 
+// trade onclick event for choosing sock from current users inventory to trade:
+
+	$('.modal-sock-pix').on("click", '.photo-holder', function(){		
+		
+		requester = ownerId;
+		userOwnedSock = $(this).attr("data-sock-id");
+		tradeDetails = "requested sock id:"+ requestedSock+
+					"current sock owner id:"+ currentSockOwner+
+					"requester id:"+ ownerId+
+					"user id of the current sock owner:"+ userOwnedSock;
+
+	});
+
+	$('.main-sock-request').on("click", function() {
+		alert(tradeDetails);
+	});
 
 })()
 

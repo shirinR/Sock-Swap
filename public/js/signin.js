@@ -26,19 +26,27 @@
       for(var i=0; i<userInfo.length; i++){
         if(userInfo[i].user_name === userInput.username){
           if (userInfo[i].password === userInput.password){
-            ownerId = userInfo[i].id;
-            // console.log(ownerId);
-            getMainPage();
-            // console.log('>>>>', userInfo[i]);
-            // console.log('@@@', ownerId);
+
+            var storedOwnerId = {
+              ownerid:userInfo[i].id,
+            };
+
+            localStorage.setItem('storedOwnerId', JSON.stringify(storedOwnerId));
+
+            return getMainPage();
+
           }else{
+            //visual indication your PASSWORD IS WRONG
+            $('.form-group').animate({ opacity:'0.5' },100);
+            $('.form-group').animate({ opacity:'1' },100);            
+            $('.form-group').animate({ opacity:'0.5' },100);
+            $('.form-group').animate({ opacity:'1' },100);
+            $('#password').val('');
+            $('#password').attr('placeholder','Password is inccorect. Please try again.');
             console.log('Password is not Match so you cannot login');
           }
         }
       }
-// console.log(ownerId);
-      return ownerId;
-
     });
   });
 });

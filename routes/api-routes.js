@@ -38,6 +38,24 @@ module.exports = function(app) {
       	});
   	});
 
+	//For item.html
+	app.get("/api/sock/:SockId", function(req,res){
+		var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+		 	}],
+		 	where: {
+    		id: req.params.SockId
+    	}
+		 };
+    db.Sock.findAll(query).then(function(dbPost){
+     	res.json(dbPost);
+   	});
+  });
+
+};
+
 	app.get("/api/trade-request/all/:ownerId?",function(req,res){
 		var query = {}
 		if(req.params.ownerId) {

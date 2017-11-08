@@ -27,16 +27,16 @@
         if(userInfo[i].user_name === userInput.username){
           if (userInfo[i].password === userInput.password){
             ownerId = userInfo[i].id;
-            console.log(ownerId);
+            // console.log(ownerId);
             getMainPage();
-            console.log('>>>>', userInfo[i]);
-            console.log('@@@', ownerId);
+            // console.log('>>>>', userInfo[i]);
+            // console.log('@@@', ownerId);
           }else{
             console.log('Password is not Match so you cannot login');
           }
         }
       }
-console.log(ownerId);
+// console.log(ownerId);
       return ownerId;
 
     });

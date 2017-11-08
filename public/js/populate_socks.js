@@ -1,5 +1,5 @@
-(function(){
-	//dummy pictures
+var ownerId = "1";
+
 
 var localStorageOwnerId = localStorage.getItem('storedOwnerId');
 
@@ -158,10 +158,10 @@ function renderSocks(){
 										sock.OwnerId));
 
 			$(".main-html .container")[0].append(sockDiv[0]);
-		})
-	})
 
-}
+		})
+
+	}
 
 function renderUserStats() {
 	$.ajax({
@@ -247,8 +247,9 @@ $(document).ready(function(){
 	console.log('Sock Owner Id:', itemSockOwnerId)
 })
 
-//if we need renderSocks in global scope
-window.renderSocks = renderSocks;
+
+	//if we need renderSocks in global scope
+	window.renderSocks = renderSocks;
 
 
 })()

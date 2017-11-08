@@ -1,21 +1,8 @@
 var ownerId = "1";
 
-function renderUserStats() {
-	$.ajax({
-		method: "GET",
-		url: "api/user/" + ownerId
-	}).done(function(user) {
-		var image = user[0].profile_img;
-		var profilePicDiv = "<img class='menu' src='" + image + "'>";
 
-		$(".profile-pic-container").append(profilePicDiv);
-	})
-}
 
 (function(){
-	//dummy pictures
-
-
 
 
 //sock html template 

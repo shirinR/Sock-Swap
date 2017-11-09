@@ -53,7 +53,7 @@ var	sockSrc =
 		"<h3 class='name'>{{name}}</h3>",
 		"<p class='description'>{{description}}</p>",
 	"</div></a>",
-	"<div class='trade' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
+	"<div data-sock-id='{{sockId}}' data-owner='{{ownerId}}' class='trade' data-toggle='modal' data-target='#myModal-trade'> Trade Sock > </div>",
 "</div>",
 ].join("");
 

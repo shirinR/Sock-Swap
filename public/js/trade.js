@@ -39,6 +39,8 @@
 
 		requestedSock = $(this).attr("data-sock-id");
 		currentSockOwner = $(this).attr("data-owner");
+		console.log(requestedSock);
+		console.log(currentSockOwner);
 	});
 
 // trade onclick event for choosing sock from current users inventory to trade:

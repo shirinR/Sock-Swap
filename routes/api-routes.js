@@ -147,7 +147,7 @@ module.exports = function(app) {
 
 		console.log("tradeRequest:", tradeRequest);		
 			//switch socks
-			//update owner sock
+			console.log(tradeRequest);
 			db.Sock.update({
 				OwnerId: tradeRequest.OwnerId
 				

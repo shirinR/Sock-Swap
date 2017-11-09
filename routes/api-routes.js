@@ -137,10 +137,11 @@ module.exports = function(app) {
 
 	app.put("/api/trade-request/accept/:id", function(req,res){
 		console.log("req:", req);
+		var tradeReqId = req.params.id;
 
 		db.TradeRequest.findOne({
 			where: {
-				id:req.params.id
+				id:tradeReqId
 			}
 		}).then(function(tradeRequest){	
 
@@ -167,6 +168,11 @@ module.exports = function(app) {
 				})
 
 			}).then(function() {
+				db.TradeRequest.destroy({
+					where: {
+						id: tradeReqId
+					}
+				})
 
 
 

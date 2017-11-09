@@ -99,8 +99,16 @@
 				var requestDiv = $(requestsHtml(trade.Owner.profile_img, trade.Owner.user_name, trade.id));
 				
 				$(".notification-overflow")[0].append(requestDiv[0]);
-				
 			})
+
+			var count = $('.notification-bar').length;
+
+	  	if (count === 0){
+	  		$('.notification-count').css('display','none');
+	  	}else{
+	  		$('.notification-count').text(count);
+	  	}
+	  	
 		})
 	}
 
@@ -144,6 +152,7 @@
 
 	$(document).ready(function(){
 		renderTradeStats(ownerId);
+
 	})
 
 

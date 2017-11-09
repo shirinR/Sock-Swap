@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "7seas1000suns",
     "database": "socks_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

@@ -72,8 +72,8 @@
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">Exchange Confirmation</h4>
 				</div>
-				<div class="modal-body">
-					<p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+				<div class="modal-body trade-dialog">
+					
 					<h4 class="modal-title accepted">Your Trade Request has been Accepted!</h4>
 					<h4 class="modal-title denied">Trade Request has been Declined.</h4>
 				</div>
@@ -282,7 +282,9 @@
 			
 		});
 
-
+		$('.modal-sock-pix').on('click', '.my-socks', function(){
+            $(this).css('opacity',1);
+        });
 
 
 

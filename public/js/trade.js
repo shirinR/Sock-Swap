@@ -58,7 +58,7 @@
 	});
 
 	$('.main-sock-request').on("click", function() {
-		alert(tradeDetails);
+	
 		insertTradeRequest(event);
 	});
 	
@@ -143,8 +143,6 @@
 				})
 
 				$(".accept").on("click", function() {
-					alert("trade request accepted!");
-
 
 					$.ajax({
 						method: "PUT",

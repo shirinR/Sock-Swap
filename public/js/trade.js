@@ -143,6 +143,13 @@
 				$(".accept").on("click", function() {
 					alert("trade request accepted!");
 
+					$.ajax({
+						method: "POST",
+						url: "/api/trade-request/accept/" + id
+					}).done(function(done){
+						console.log("finished");
+					})
+
 					
 				})
 

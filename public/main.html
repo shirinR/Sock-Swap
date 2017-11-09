@@ -74,6 +74,8 @@
 				</div>
 				<div class="modal-body">
 					<p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+					<h4 class="modal-title accepted">Your Trade Request has been Accepted!</h4>
+					<h4 class="modal-title denied">Trade Request has been Declined.</h4>
 				</div>
 				<div class="modal-footer">
 
@@ -240,6 +242,42 @@
 				$('.modal-header .modal-title').css('display','block');
 				$('.modal-footer').css('display','block');
 				$('#myModal-trade .modal-body .modal-title').css('display','none');
+			}, 3000);
+			
+		});
+
+		$('#myModal').on('click','.modal-footer .accept', function(){
+
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .accepted').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .accepted').css('display','none');
+			}, 3000);
+			
+		});
+
+		$('#myModal').on('click','.modal-footer .nope', function(){
+
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .denied').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .denied').css('display','none');
 			}, 3000);
 			
 		});

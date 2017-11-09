@@ -226,7 +226,7 @@ header .opened{
 	font-size:30pt;
 }
 
-#myModal-trade .modal-body .modal-title{
+#myModal-trade .modal-body .modal-title, #myModal .modal-body .modal-title{
 	display:none;
 }
 
@@ -251,6 +251,11 @@ header .opened{
 	width: 129.5px;
 	height: 200px;
 	float:left;
+}
+
+.modal-footer .accept:hover, .modal-footer .nope:hover{
+	cursor: pointer;
+	opacity: 1;
 }
 
 .footer-button-space{

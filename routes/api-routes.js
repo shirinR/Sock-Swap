@@ -135,18 +135,20 @@ module.exports = function(app) {
 			});
 	});
 
-	app.post("/api/trade-request/accept/:id", function(req,res){
+	app.put("/api/trade-request/accept/:id", function(req,res){
+		console.log("req:", req);
+
 		db.TradeRequest.findOne({
 			where: {
 				id:req.params.id
 			}
-		}).then(function(tradeRequest){
-			console.log("tradeRequest",tradeRequest)
-			
+		}).then(function(tradeRequest){	
+
+		console.log("tradeRequest:", tradeRequest);		
 			//switch socks
 			//update owner sock
 			db.Sock.update({
-				OwnerId: tradeRequest.requesteeId,
+				OwnerId: tradeRequest.OwnerId
 				
 			},{
 				where: {

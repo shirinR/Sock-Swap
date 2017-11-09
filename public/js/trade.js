@@ -132,6 +132,12 @@
 					$(".trade-dialog").append(div);
 				})
 
+				$(".accept").on("click", function() {
+					alert("trade request accepted!");
+
+					
+				})
+
 		})
 	}
 

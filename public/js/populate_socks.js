@@ -1,5 +1,9 @@
-var ownerId = "1";
+var ownerId;
 
+
+
+
+(function(){
 
 var localStorageOwnerId = localStorage.getItem('storedOwnerId');
 
@@ -228,6 +232,7 @@ function renderMyItemSock(){
 		}
 	});
 };
+
 
 
 //on page load render socks

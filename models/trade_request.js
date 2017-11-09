@@ -6,10 +6,7 @@ var TradeRequest = sequelize.define("TradeRequest", {
       autoIncrement: true,
       primaryKey: true
     },
-    ownerId: {
-      type: DataTypes.INTEGER
-    },
-    requesteeId: {
+    OwnerId: {
       type: DataTypes.INTEGER
     },
     ownerSockId: {
@@ -19,6 +16,17 @@ var TradeRequest = sequelize.define("TradeRequest", {
       type: DataTypes.INTEGER
     }
   });
+
+  TradeRequest.associate = function(models) {
+    TradeRequest.belongsTo(models.Owner, {
+
+      foreignKey: {
+        name: 'requesteeId',
+        allowNull: false
+      }
+    });
+
+  };
   return TradeRequest;
 };
 // INSERT INTO TradeRequest (ownerId, requesteeId, sockId)

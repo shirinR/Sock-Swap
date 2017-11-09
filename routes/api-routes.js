@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-	app.get("/api/socks/:OwnerId?",function(req,res){
+	app.get("/api/socks/:OwnerId?/:id?",function(req,res){
 		var query = {
 		 	include: [{
 		 		model: db.Owner,
@@ -13,6 +13,12 @@ module.exports = function(app) {
 		if(req.params.OwnerId) {
 		 	query.where = {
 		 		OwnerId: req.params.OwnerId
+		 	}
+		}
+
+		if(req.params.id) {
+		 	query.where = {
+		 		id: req.params.id
 		 	}
 		}
 
@@ -38,6 +44,26 @@ module.exports = function(app) {
       	});
   	});
 
+
+	app.get("/api/trade-request/all/:OwnerId?",function(req,res){
+    
+    var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+		 	}]
+		 };
+		if(req.params.OwnerId) {
+		 	query.where = {
+		 		OwnerId: req.params.OwnerId
+		 	}
+		}
+		 	db.TradeRequest.findAll(query)
+			.then(function(dbPost) {
+		  	res.json(dbPost)
+		});
+	});
+
 	//For item.html
 	app.get("/api/sock/:SockId", function(req,res){
 		var query = {
@@ -47,18 +73,43 @@ module.exports = function(app) {
 		 	}],
 		 	where: {
     		id: req.params.SockId
-    	}
+    		}
 		 };
-    db.Sock.findAll(query).then(function(dbPost){
-     	res.json(dbPost);
-   	});
-  });
+    	db.Sock.findAll(query).then(function(dbPost){
+     		res.json(dbPost);
+   		});
+  	});
+  
+  	app.get("/api/trade-request/all/:OwnerId?",function(req,res){
+      var query = {
+        include: [{
+          model: db.Owner,
+          attributes: ["profile_img", "user_name"]
 
-	app.get("/api/trade-request/all/:ownerId?",function(req,res){
-		var query = {}
-		if(req.params.ownerId) {
+        }]
+       };
+      if(req.params.OwnerId) {
+        query.where = {
+          OwnerId: req.params.OwnerId
+        }
+      }
+        db.TradeRequest.findAll(query)
+        .then(function(dbPost) {
+          res.json(dbPost)
+		});
+	});
+
+	app.get("/api/trade-request/:id?",function(req,res){
+		var query = {
+		 	include: [{
+		 		model: db.Owner,
+		 		attributes: ["profile_img", "user_name"]
+
+		 	}]
+		 };
+		if(req.params.id) {
 		 	query.where = {
-		 		ownerId: req.params.ownerId
+		 		id: req.params.id
 		 	}
 		}
 		 	db.TradeRequest.findAll(query)
@@ -66,11 +117,14 @@ module.exports = function(app) {
 		  	res.json(dbPost)
 		});
 	});
+
+
+
 	app.post("/api/trade-request/create",function(req,res){
 			// console.log("body",req.body)
 
 		 	db.TradeRequest.create({
-		 		ownerId: req.body.ownerId,
+		 		OwnerId: req.body.OwnerId,
 		 		requesteeId: req.body.requesteeId,
 		 		ownerSockId: req.body.ownerSockId,
 		 		requesteeSockId: req.body.requesteeSockId

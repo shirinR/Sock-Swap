@@ -134,6 +134,46 @@ module.exports = function(app) {
 			  	res.json(dbPost)
 			});
 	});
+
+	app.put("/api/trade-request/accept/:id", function(req,res){
+		console.log("req:", req);
+
+		db.TradeRequest.findOne({
+			where: {
+				id:req.params.id
+			}
+		}).then(function(tradeRequest){	
+
+		console.log("tradeRequest:", tradeRequest);		
+			//switch socks
+			//update owner sock
+			db.Sock.update({
+				OwnerId: tradeRequest.OwnerId
+				
+			},{
+				where: {
+					id: tradeRequest.OwnerId
+				}
+			})
+			.then(function(){
+				//update requestee sock
+				db.Sock.update({
+					OwnerId: tradeRequest.OwnerId,
+					
+				},{
+					where: {
+						id: tradeRequest.requesteeSockId
+					}
+				})
+
+			}).then(function() {
+
+
+
+			})
+		})
+	})
+
 	app.delete("/api/trade-request/delete/:id", function(req,res){
 		var id = parseInt(req.params.id);
 		db.TradeRequest.destroy({ where: { id: id } })

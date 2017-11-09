@@ -15,7 +15,7 @@
 	
 </head>
 
-<body>
+<body class="main-html">
 	<!-- FOOTER -->
 	<img class="bottom-leaves" src="./images/fallen_leaves.png">
 	<!-- FOOTER - END -->
@@ -153,7 +153,7 @@
 
 		$('header').on('click','.menu',function(){
 			if ($('.menu-box').hasClass('closed')){
-				console.log('sweet');
+
 				$('.menu-box').removeClass('closed');
 				$('.menu-box').addClass('opened');
 				$('.menu-box').animate({right: '300px'},200);
@@ -195,7 +195,6 @@
 	  });
 
 		$('#myModal-trade').on('click','.main-sock-request', function(){
-			console.log('yayyyaayayaya');
 
 			$('.modal-sock-pix').css('display','none');
 			$('.modal-header .modal-title').css('display','none');
@@ -215,16 +214,16 @@
 		});
 
 
+
+
 	  $(document).ready(function(){
 	  	var count = $('.notification-bar').length;
 
 	  	if (count === 0){
 	  		$('.notification-count').css('display','none');
 	  	}else{
-	  		console.log('BREEZY');
 	  		$('.notification-count').text(count);
 	  	}
-	  	console.log(count);
 
 	  });
 

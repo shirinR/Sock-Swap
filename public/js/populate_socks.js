@@ -1,9 +1,3 @@
-var ownerId;
-
-
-
-
-(function(){
 
 var localStorageOwnerId = localStorage.getItem('storedOwnerId');
 
@@ -253,5 +247,4 @@ $(document).ready(function(){
 
 	//if we need renderSocks in global scope
 	window.renderSocks = renderSocks;
-
 

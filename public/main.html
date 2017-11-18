@@ -15,7 +15,7 @@
 	
 </head>
 
-<body>
+<body class="main-html">
 	<!-- FOOTER -->
 	<img class="bottom-leaves" src="./images/fallen_leaves.png">
 	<!-- FOOTER - END -->
@@ -44,7 +44,7 @@
 	<!-- CENTER SOCKS -->
 	<div class="container">
 
-		<div class="photo-holder">
+<!-- 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/5b/b9/48/5bb948735f0e0e587f3305d583eeef83--space-astronauts-crazy-socks.jpg">	
 			<div class="information">
 				<div class="profile-holder">
@@ -55,7 +55,7 @@
 				<div class="trade" data-toggle="modal" data-target="#myModal-trade"> Trade Sock > </div>
 			</div>
 
-		</div>
+		</div> -->
 
 
 	</div> <!--container-->
@@ -74,6 +74,8 @@
 				</div>
 				<div class="modal-body">
 					<p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+					<h4 class="modal-title accepted">Your Trade Request has been Accepted!</h4>
+					<h4 class="modal-title denied">Trade Request has been Declined.</h4>
 				</div>
 				<div class="modal-footer">
 
@@ -158,40 +160,13 @@
 		<div class="notification-overflow">
 
 			<!-- DATA-TOGGLE AND DATA-TARGET NEEDED FOR MODAL -->
-			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
+<!-- 			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
 				<div class="profile-holder">
 					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
 				</div>
 				<span>First_Names wants to exchange with you.</span>
-			</div>
+			</div> -->
 
-			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>
-
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>First_Names wants to exchange with you.</span>
-			</div>
-
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>		
-
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>
 
 		</div><!--notification overflow-->
 	</div><!--notification box-->
@@ -211,7 +186,7 @@
 
 		$('header').on('click','.menu',function(){
 			if ($('.menu-box').hasClass('closed')){
-				console.log('sweet');
+
 				$('.menu-box').removeClass('closed');
 				$('.menu-box').addClass('opened');
 				$('.menu-box').animate({right: '300px'},200);
@@ -253,7 +228,6 @@
 	  });
 
 		$('#myModal-trade').on('click','.main-sock-request', function(){
-			console.log('yayyyaayayaya');
 
 			$('.modal-sock-pix').css('display','none');
 			$('.modal-header .modal-title').css('display','none');
@@ -272,19 +246,45 @@
 			
 		});
 
+		$('#myModal').on('click','.modal-footer .accept', function(){
 
-	  $(document).ready(function(){
-	  	var count = $('.notification-bar').length;
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .accepted').css('display','block');
 
-	  	if (count === 0){
-	  		$('.notification-count').css('display','none');
-	  	}else{
-	  		console.log('BREEZY');
-	  		$('.notification-count').text(count);
-	  	}
-	  	console.log(count);
 
-	  });
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .accepted').css('display','none');
+			}, 3000);
+			
+		});
+
+		$('#myModal').on('click','.modal-footer .nope', function(){
+
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .denied').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .denied').css('display','none');
+			}, 3000);
+			
+		});
+
+
+
+
 
 	//MAIN PAGE FUNCTIONALITY - END
 
@@ -292,8 +292,6 @@
 	</script>
 	<script src="js/populate_socks.js"></script>
 	<script src="js/trade.js"></script>
-	<!-- Custom Script for Ajax -->
-
 </body>
 
 </html>

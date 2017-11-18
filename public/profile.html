@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/main-styles.css" media="screen" title="no title">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 </head>
 
 <body class="profile-html">
@@ -41,10 +42,11 @@
 		<div class="profile-banner">
 
 			<div class="profile-banner-color"></div>
-			<h1>Welcome Home, Barack Obama.</h1>
-
+			<div class="welcome-text">
+				<!-- <h1>Welcome Home, Barack Obama.</h1> -->
+			</div>
 			<div class="profile-holder">
-				<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
+				<!-- <img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg"> -->
 			</div>
 		</div>
 
@@ -57,7 +59,7 @@
 
 
 	<!-- CENTER SOCKS -->
-	<div class="container">    
+	<div class="container profile-socks-container">    
 		<div class="profile-options">
 			<div class="add-a-sock" data-toggle="modal" data-target="#myModal-add">
 				<p>+</p>	
@@ -78,7 +80,7 @@
 			</div>
 		</div>
 
-		<div class="photo-holder">
+<!-- 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/00/6f/d9/006fd9d8b5adec618fb400645808ee28--funky-socks-crazy-socks.jpg">
 			<div class="information">
 				<h3 class="name">Zombie Boy</h3>
@@ -112,7 +114,7 @@
 
 		<div class="photo-holder">
 			<img class="featured-socks" src="https://i.pinimg.com/736x/0f/6d/26/0f6d26775a58a838a3445e2425941ef5--thigh-socks-knee-high-socks.jpg">
-		</div>
+		</div> -->
 
 	</div> <!--container-->
 	<!-- CENTER SOCKS - END -->
@@ -160,11 +162,14 @@
 				</div>
 				<div class="modal-body">
 					<p>[First_Person] wants to trade [First_Person Sock Name] for your [Your Sock Name].</p>
+					<h4 class="modal-title accepted">Your Trade Request has been Accepted!</h4>
+					<h4 class="modal-title denied">Trade Request has been Declined.</h4>
 				</div>
 				<div class="modal-footer">
 
 					<img class="modal-icon accept" src="./images/accept_icon.png">
 					<img class="modal-icon nope" src="./images/nope_icon.png">
+
 				</div>
 			</div>
 			
@@ -183,40 +188,14 @@
 		<div class="notification-overflow">
 
 			<!-- DATA-TOGGLE AND DATA-TARGET NEEDED FOR MODAL -->
-			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
+			<!-- <div class="notification-bar" data-toggle="modal" data-target="#myModal">
 				<div class="profile-holder">
 					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
 				</div>
 				<span>First_Names wants to exchange with you.</span>
-			</div>
+			</div> -->
 
-			<div class="notification-bar" data-toggle="modal" data-target="#myModal">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>
 
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>First_Names wants to exchange with you.</span>
-			</div>
-
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>		
-
-			<div class="notification-bar">
-				<div class="profile-holder">
-					<img class="profile" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Official_portrait_of_Barack_Obama.jpg/220px-Official_portrait_of_Barack_Obama.jpg">
-				</div>
-				<span>Second_Names wants to exchange with you.</span>
-			</div>
 		</div><!--notification overflow-->
 	</div><!--notification box-->
 	<!-- NOTIFICATION BOX - LEFT - END -->
@@ -249,16 +228,19 @@
 	//HEADER FUNCTIONALITY - END
 
 	//MAIN PAGE FUNCTIONALITY
-	$('.photo-holder').hover(function(){
-		$(this).find('.information').css('display','block');
-		setTimeout(function(){
-			$('.information').css('opacity', '1');
-		}, 1);
-		
-	}, function(){
-		$('.information').css('opacity', '0');
-		$('.information').css('display','none');
-	});
+    $(".container").on("mouseenter mouseleave", ".photo-holder", function (e) {
+		  if (e.type == "mouseenter") {
+		    $(this).find('.information').css('display','block');
+		        setTimeout(function(){
+		            $('.information').css('opacity', '1');
+		        }, 1);
+
+		  } else {
+		    // if not, mouseleave, do something
+		    $('.information').css('opacity', '0');
+		        $('.information').css('display','none');
+		  }
+	}); 
 
 	$('.notification-box').on('click','.pull-tab',function(){
 		if($('.pull-tab').hasClass('closed')){
@@ -273,21 +255,46 @@
 		};
 	});		
 	//MAIN PAGE FUNCTIONALITY - END
-	
-	  $(document).ready(function(){
-	  	var count = $('.notification-bar').length;
 
-	  	if (count === 0){
-	  		$('.notification-count').css('display','none');
-	  	}else{
-	  		console.log('BREEZY');
-	  		$('.notification-count').text(count);
-	  	}
-	  	console.log(count);
+		$('#myModal').on('click','.modal-footer .accept', function(){
 
-	  });
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .accepted').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .accepted').css('display','none');
+			}, 3000);
+			
+		});
+
+		$('#myModal').on('click','.modal-footer .nope', function(){
+
+			$('#myModal .modal-body p').css('display','none');
+			$('.modal-header .modal-title').css('display','none');
+			$('.modal-footer').css('display','none');
+			$('#myModal .modal-body .denied').css('display','block');
+
+
+			setTimeout(function(){
+				$('#myModal .close').trigger("click");
+				$('#myModal .modal-body p').css('display','block');
+				$('.modal-header .modal-title').css('display','block');
+				$('.modal-footer').css('display','block');
+				$('#myModal .modal-body .denied').css('display','none');
+			}, 3000);
+			
+		});
 
 </script>
+	<script src="js/populate_socks.js"></script>
+	<script src="js/trade.js"></script>
 </body>
 
 </html>

@@ -1,18 +1,22 @@
 
-INSERT INTO TradeRequests (ownerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
+INSERT INTO TradeRequests (OwnerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
 VALUES (1,2,1,6,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO TradeRequests (ownerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
+INSERT INTO TradeRequests (OwnerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
 VALUES (2,2,7,2,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO TradeRequests (ownerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
+INSERT INTO TradeRequests (OwnerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
 VALUES (3,4,11,15,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO TradeRequests (ownerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
+INSERT INTO TradeRequests (OwnerId, requesteeId, ownerSockId,requesteeSockId,createdAt, updatedAt)
 VALUES (4,3,14,12,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
 
+DROP DATABASE IF EXISTS socks_db;
+-- Creates the "todolist" database --
+CREATE DATABASE socks_db;
 
+USE socks_db;
 
 
 INSERT INTO Owners (user_name, createdAt, updatedAt, password, profile_img)

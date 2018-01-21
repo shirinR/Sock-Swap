@@ -17,7 +17,7 @@ When someone attempt to trade any socks, socks owner will receive a notification
 2. Add session Timeout.
 3. Add search feature.
 
-# Contributors:
+# Collaborators:
 * Raymond Hui https://github.com/raywhui
 * Hillary Ellis https://github.com/hillaryellis37
 * Matthew https://github.com/metaversedance

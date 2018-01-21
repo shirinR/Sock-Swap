@@ -13,9 +13,9 @@ Back-end: Node, Express.js
 Database: Sequelize
 
 # Future improvements:
-Add user authentication.
-Adding session Timeout.
-Add search feature.
+1. Add user authentication.
+2. Adding session Timeout.
+3. Add search feature.
 
 # Contributors:
 Raymond Hui https://github.com/raywhui

@@ -8,9 +8,9 @@ When someone attempt to trade any socks, socks owner will receive a notification
 
 
 # Technolgy used:
-Front-end: JavaScript, HTML/CSS/Bootstrap
-Back-end: Node, Express.js
-Database: Sequelize
+- Front-end: JavaScript, HTML/CSS/Bootstrap
+- Back-end: Node, Express.js
+- Database: Sequelize
 
 # Future improvements:
 1. Add user authentication.
@@ -18,7 +18,7 @@ Database: Sequelize
 3. Add search feature.
 
 # Contributors:
-Raymond Hui https://github.com/raywhui
-Hillary Ellis https://github.com/hillaryellis37
-Matthew https://github.com/metaversedance
-Shirin Rad https://github.com/shirinR
+* Raymond Hui https://github.com/raywhui
+* Hillary Ellis https://github.com/hillaryellis37
+* Matthew https://github.com/metaversedance
+* Shirin Rad https://github.com/shirinR

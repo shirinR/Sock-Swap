@@ -14,7 +14,7 @@ When someone attempt to trade any socks, socks owner will receive a notification
 
 # Future improvements:
 1. Add user authentication.
-2. Adding session Timeout.
+2. Add session Timeout.
 3. Add search feature.
 
 # Contributors:

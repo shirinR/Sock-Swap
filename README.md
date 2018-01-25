@@ -6,20 +6,21 @@ If other users click on any socks picture, they can see more details about the s
 When someone attempts to trade any socks, socks owner will receive a notification that someone wants to have socks exchange. Right after the sock owner confirmed, other users will receive a notification in notification box that exchange attempt was confirmed by the owner and process is complete.
 
 # Seeded credentials: 
-User name: ”hillary1"
-Password: “Hillary1"
+
+ - Username: ”hillary1"
+ - Password: “Hillary1"
 
 --------------------------
-Username: ”matt1"
-Password: ”Matt1"
+- Username: ”matt1"
+- Password: ”Matt1"
 
 --------------------------
-Username: ”raymond1"
-Password: “Raymond1"
+- Username: ”raymond1"
+- Password: “Raymond1"
 
 --------------------------
-Username: ”shirin1"
-Password: “Shirin1"
+- Username: ”shirin1"
+- Password: “Shirin1"
 
 # Technolgy used:
 - Front-end: JavaScript, HTML/CSS/Bootstrap
